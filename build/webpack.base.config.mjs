@@ -1,47 +1,27 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
-import { merge } from 'webpack-merge';
-import { __dirname } from './toolkits.mjs';
-import {
-	getPort ,
-	pick,
-} from './utils.mjs';
-import {
-	method ,
-} from '../webpack.main.mjs';
-
-import { LogWhenSucceed } from './plugins.mjs';
-
-import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
+const cssLoaderOptions = {
+	sourceMap : true ,
+	modules : {
+		exportLocalsConvention : "dashes" ,
+		localIdentName : "[local]--[hash:base64:4]" ,
+		
+	} ,
+};
 
 /**
  * @suggest dev环境建议使用全量source-map , 否则可能会导致错误栈无法定位到正确的模块
  */
-const {
-	DllReferencePlugin ,
-	DllPlugin ,
-	DefinePlugin ,
-} = webpack;
-const defaultPartialConfig = {
-	plugins : [] ,
-};
-/*拿到可用的端口号*/
-export const port = await getPort();
-export const rootPath = path.resolve(__dirname , '../');
 
 /*webpack基础配置*/
-export const getBasicWebpackConfig = () => ({
+export const webpack_base_config = {
 	mode : method === 'server' ? 'development' : 'production' ,
 	entry : {
-		main : '/src/main.tsx' ,
+		main : path.resolve(repoRoot , "src") ,
 	} ,
 	output : {
 		// filename : '[name].bundle.[fullhash:6].js' ,
 		/*todo*/
 		filename : method === "server" ? '[name].bundle.js' : "[name].bundle.[contenthash:6].js" ,
-		path : path.resolve(rootPath , 'dist') , // publicPath : path.resolve(rootPath , 'dist') ,
+		path : path.resolve(repoRoot , 'dist') , // publicPath : path.resolve(rootPath , 'dist') ,
 	} ,
 	resolve : {
 		alias : {
@@ -56,8 +36,7 @@ export const getBasicWebpackConfig = () => ({
 			'@@Xcomponents' : path.resolve(rootPath , 'src/common/Xcomponents') ,
 			'@@SvgComponents/*' : path.resolve(rootPath , 'src/common/SvgComponents/*') ,
 			'@@SvgComponents' : path.resolve(rootPath , 'src/common/SvgComponents') ,
-			'@@utils' : path.resolve(rootPath , 'src/utils/index.tsx') ,
-			'@@utils/*' : path.resolve(rootPath , 'src/utils/*') ,
+			'@@utils' : path.resolve(packagesRoot , 'utils') ,
 			'@@Public' : path.join(rootPath , 'Public') ,
 			'@@mobxState' : path.resolve(rootPath , 'src/common/MobxState.ts') ,
 			'@@components' : path.resolve(rootPath , 'src/utils/components/index.ts') ,
@@ -67,8 +46,7 @@ export const getBasicWebpackConfig = () => ({
 			'@@reaxels/*' : path.resolve(rootPath , 'src/reaxels/*') ,
 			'@@requester' : path.resolve(rootPath , 'src/common/requester') ,
 			'@@requests' : path.resolve(rootPath , 'src/requests') ,
-			'@@requests/*' : path.resolve(rootPath , 'src/requests/*') ,
-			// "magic-sdk" : path.resolve(rootPath , "node_modules/magic-sdk/dist/cjs/index.js") ,
+			'@@requests/*' : path.resolve(rootPath , 'src/requests/*') , // "magic-sdk" : path.resolve(rootPath , "node_modules/magic-sdk/dist/cjs/index.js") ,
 			// '@@common/requests' : path.resolve(rootPath , 'src/common/requests/index.ts') ,
 			// '@@common/routes' : path.resolve(rootPath , 'src/common/routes/index.ts') ,
 			
@@ -92,7 +70,7 @@ export const getBasicWebpackConfig = () => ({
 				test : /\.m?js$/ ,
 				resolve : {
 					fullySpecified : false ,
-				},
+				} ,
 			} ,
 			{
 				test : /\.(jsx?|tsx?)$/ ,
@@ -130,7 +108,7 @@ export const getBasicWebpackConfig = () => ({
 					} ,
 					{
 						loader : 'css-loader' ,
-						options : pick(cssLoaderOptions , ["sourceMap"]) ,
+						options : _.pick(cssLoaderOptions , ["sourceMap"]) ,
 					} ,
 					{
 						loader : 'less-loader' ,
@@ -163,7 +141,7 @@ export const getBasicWebpackConfig = () => ({
 					} ,
 					{
 						loader : 'css-loader' ,
-						options : pick(cssLoaderOptions , ["sourceMap"]) ,
+						options : _.pick(cssLoaderOptions , ["sourceMap"]) ,
 					} ,
 				] ,
 			} ,
@@ -172,7 +150,7 @@ export const getBasicWebpackConfig = () => ({
 				use : [
 					{
 						loader : 'css-loader' ,
-						options : pick(cssLoaderOptions , ["sourceMap"]) ,
+						options : _.pick(cssLoaderOptions , ["sourceMap"]) ,
 					} ,
 					{
 						loader : 'less-loader' ,
@@ -189,7 +167,7 @@ export const getBasicWebpackConfig = () => ({
 				test : /\.(png|jpe?g|te?xt|gif|woff|woff2|eot|ttf|otf|bmp|swf)$/ ,
 				type : "asset/resource" ,
 				generator : {
-					filename : 'static/[hash][ext][query]',
+					filename : 'static/[hash][ext][query]' ,
 				} ,
 				parser : {
 					dataUrlCondition : {
@@ -229,14 +207,17 @@ export const getBasicWebpackConfig = () => ({
 	plugins : [
 		new NodePolyfillPlugin() ,
 	] ,
-});
-
-
-const cssLoaderOptions = {
-	sourceMap : true ,
-	modules : {
-		exportLocalsConvention : "dashes" ,
-		localIdentName : "[local]--[hash:base64:4]" ,
-		
-	} ,
 };
+
+
+import path from 'path';
+import TerserPlugin from 'terser-webpack-plugin';
+import {
+	method ,
+	repoRoot ,
+	rootPath ,
+	packagesRoot,
+} from './entrance.mjs';
+import _ from 'lodash';
+
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';

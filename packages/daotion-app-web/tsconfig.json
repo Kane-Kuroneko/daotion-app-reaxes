@@ -64,10 +64,10 @@
 		"paths" : {
 			"@@root/*" : ["*"] ,
 			"@@toolkits/*" : [
-				"src/tool-kits/*"
+				"../toolkits/*"
 			] ,
 			"@@toolkits" : [
-				"src/tool-kits"
+				"../toolkits"
 			] ,
 			"@@Xcomponents/*" : [
 				"src/common/Xcomponents/*"
@@ -82,10 +82,10 @@
 				"src/common/SvgComponents/index.tsx"
 			] ,
 			"@@utils" : [
-				"src/utils/index.tsx"
+				"../utils"
 			] ,
 			"@@utils/*" : [
-				"src/utils/*"
+				"../utils/*"
 			] ,
 			"@@components" : [
 				"src/utils/components/index.ts"
