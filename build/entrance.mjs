@@ -50,7 +50,6 @@ export let {
 	} ,
 ]);
 
-
 /*如果没有明确指定node_env:  npm.server下自动dev,npm.build是production*/
 if ( !node_env ) {
 	if(method === "server"){
@@ -71,6 +70,19 @@ export const rootPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)
 export const repoRoot = path.resolve(rootPath , `packages/${ repo }`);
 
 export const packagesRoot = path.resolve(rootPath , `packages`);
+
+/*定义那些是业务模块,*/
+export const repoPackages = [
+	"daotion-app-web" ,
+	"daotion-demo-web" ,
+	"daotion-honmepage-web" ,
+	"overseas-payment-merchant-background-admin" ,
+	"overseas-payment-merchant-operation-platform" ,
+];
+/*非业务模块不可被打包,因为webpack.base.config.mjs里配置了对通用模块的alias,*/
+if(repoPackages.every((repoName) => repoName !== repo )){
+	throw new Error(`this repo "${ repo }" is not a valid business package`);
+}
 
 import {
 	getPort ,
