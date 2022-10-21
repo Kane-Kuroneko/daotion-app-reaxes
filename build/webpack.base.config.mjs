@@ -6,7 +6,7 @@ const cssLoaderOptions = {
 		
 	} ,
 };
-
+const {ProvidePlugin} = webpack;
 /**
  * @suggest dev环境建议使用全量source-map , 否则可能会导致错误栈无法定位到正确的模块
  */
@@ -27,26 +27,14 @@ export const webpack_base_config = {
 		alias : {
 			'react-dom' : "@hot-loader/react-dom" ,
 			'mobx-react-lite' : path.resolve(rootPath , 'src/libs/mobx-react-lite/index') ,
-			'@@RootPath' : path.resolve(rootPath) ,
-			'@@common' : path.resolve(rootPath , 'src/common') ,
-			'@@common/*' : path.resolve(rootPath , 'src/common/*') ,
-			'@@toolkits' : path.resolve(rootPath , 'src/tool-kits') ,
-			'@@toolkits/*' : path.resolve(rootPath , 'src/tool-kits/*') ,
-			'@@Xcomponents/*' : path.resolve(rootPath , 'src/common/Xcomponents/*') ,
-			'@@Xcomponents' : path.resolve(rootPath , 'src/common/Xcomponents') ,
-			'@@SvgComponents/*' : path.resolve(rootPath , 'src/common/SvgComponents/*') ,
-			'@@SvgComponents' : path.resolve(rootPath , 'src/common/SvgComponents') ,
-			'@@utils' : path.resolve(packagesRoot , 'utils') ,
-			'@@Public' : path.join(rootPath , 'Public') ,
-			'@@mobxState' : path.resolve(rootPath , 'src/common/MobxState.ts') ,
+			'#root' : path.resolve(rootPath) ,
+			'#toolkits' : path.resolve(packagesRoot , 'tookits') ,
+			'#statics' : path.resolve(rootPath , 'statics') ,
+			'#utils' : path.resolve(packagesRoot , 'utils') ,
 			'@@components' : path.resolve(rootPath , 'src/utils/components/index.ts') ,
 			'@@components/*' : path.resolve(rootPath , 'src/utils/components/*') ,
 			'@@pages' : path.resolve(rootPath , 'src/pages') ,
-			'@@reaxels' : path.resolve(rootPath , 'src/reaxels') ,
-			'@@reaxels/*' : path.resolve(rootPath , 'src/reaxels/*') ,
-			'@@requester' : path.resolve(rootPath , 'src/common/requester') ,
-			'@@requests' : path.resolve(rootPath , 'src/requests') ,
-			'@@requests/*' : path.resolve(rootPath , 'src/requests/*') , // "magic-sdk" : path.resolve(rootPath , "node_modules/magic-sdk/dist/cjs/index.js") ,
+			'#reaxels' : path.resolve(rootPath , 'src/reaxels') ,
 			// '@@common/requests' : path.resolve(rootPath , 'src/common/requests/index.ts') ,
 			// '@@common/routes' : path.resolve(rootPath , 'src/common/routes/index.ts') ,
 			
@@ -206,6 +194,95 @@ export const webpack_base_config = {
 	stats : 'errors-only' ,
 	plugins : [
 		new NodePolyfillPlugin() ,
+		new ProvidePlugin({
+			_ : ["lodash"] ,
+			React : ["react"] ,
+			useState : [
+				"react" ,
+				"useState" ,
+			] ,
+			useEffect : [
+				"react" ,
+				"useEffect" ,
+			] ,
+			useRef : [
+				"react" ,
+				"useRef" ,
+			] ,
+			useLayoutEffect : [
+				"react" ,
+				"useLayoutEffect" ,
+			] ,
+			useMemo : [
+				"react" ,
+				"useMemo" ,
+			] ,
+			useCallback : [
+				"react" ,
+				"useCallback" ,
+			] ,
+			antd : [
+				"antd",
+			] ,
+			ComponentWrapper : [
+				"@@common/ReactComponentWrapper" ,
+				"ComponentWrapper" ,
+			] ,
+			ReactComponentClass : [
+				"@@common/ReactComponentClass" ,
+				"ReactComponentClass" ,
+			] ,
+			orzMobx : [
+				"@@mobxState" ,
+				"orzMobx" ,
+			] ,
+			orzPromise : [
+				"@@utils" ,
+				"orzPromise" ,
+			] ,
+			utils : ["@@utils"] ,
+			toolkits : ["@@toolkits"] ,
+			crayon : [
+				"@@utils" ,
+				"crayon" ,
+			] ,
+			logProxy : [
+				"@@utils" ,
+				"logProxy" ,
+			] ,
+			decodeQueryString : [
+				"@@utils" ,
+				"decodeQueryString" ,
+			] ,
+			encodeQueryString : [
+				"@@utils" ,
+				"encodeQueryString" ,
+			] ,
+			stringify : [
+				"@@utils" ,
+				"stringify" ,
+			] ,
+			request : [
+				"@@requester" ,
+				"request" ,
+			] ,
+			Reaxes : [
+				"@@RootPath/src/Reaxes.core" ,
+				"Reaxes",
+			] ,
+			I18n : [
+				"@@reaxels/i18n" ,
+				"I18n",
+			] ,
+			i18n : [
+				"@@reaxels/i18n" ,
+				"i18n",
+			] ,
+			env : [
+				"@@requester" ,
+				"request" ,
+			] ,
+		}),
 	] ,
 };
 
@@ -219,5 +296,6 @@ import {
 	packagesRoot,
 } from './entrance.mjs';
 import _ from 'lodash';
+import webpack from 'webpack';
 
 import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';

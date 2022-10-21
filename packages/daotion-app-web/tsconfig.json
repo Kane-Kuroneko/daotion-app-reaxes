@@ -5,7 +5,6 @@
 		"allowUnusedLabels" : true ,
 		"baseUrl" : "." ,
 		"declaration" : false ,
-		"declarationDir" : "src/common/Global DTS" ,
 		"declarationMap" : false ,
 		"esModuleInterop" : true ,
 		"experimentalDecorators" : true ,
@@ -16,6 +15,31 @@
 		"strictBindCallApply" : false ,
 		"strictNullChecks" : false ,
 		"allowUnreachableCode" : true ,
+		"module" : "CommonJS" ,
+		"moduleResolution" : "node" ,
+		"noEmit" : true ,
+		"noImplicitAny" : false ,
+		"noImplicitReturns" : false ,
+		"noImplicitUseStrict" : false ,
+		"noUnusedLocals" : false ,
+		"noUnusedParameters" : false ,
+		"preserveConstEnums" : true ,
+		"removeComments" : true ,
+		"sourceMap" : true ,
+		"target" : "ES2020" ,
+		"watch" : false ,
+		"allowSyntheticDefaultImports" : true ,
+		"paths" : {
+			"@@requester" : [
+				"src/requester"
+			],
+			"#requester" : [
+				"../requester"
+			],
+			"@@toolkits" : [
+				"src/toolkits"
+			]
+		} ,
 		"lib" : [
 			"ES5" ,
 			"ES6" ,
@@ -50,99 +74,25 @@
 			"ESNext.Array" ,
 			"ESNext.Intl" ,
 			"ESNext.Symbol" ,
-			"react",
+			"react" ,
 			"DOM"
-		] ,
-		"module" : "CommonJS" ,
-		"moduleResolution" : "node" ,
-		"noEmit" : true ,
-		"noImplicitAny" : false ,
-		"noImplicitReturns" : false ,
-		"noImplicitUseStrict" : false ,
-		"noUnusedLocals" : false ,
-		"noUnusedParameters" : false ,
-		"paths" : {
-			"@@root/*" : ["*"] ,
-			"@@toolkits/*" : [
-				"../toolkits/*"
-			] ,
-			"@@toolkits" : [
-				"../toolkits"
-			] ,
-			"@@Xcomponents/*" : [
-				"src/common/Xcomponents/*"
-			] ,
-			"@@Xcomponents" : [
-				"src/common/Xcomponents/index.tsx"
-			] ,
-			"@@SvgComponents/*" : [
-				"src/common/SvgComponents/*"
-			] ,
-			"@@SvgComponents" : [
-				"src/common/SvgComponents/index.tsx"
-			] ,
-			"@@utils" : [
-				"../utils"
-			] ,
-			"@@utils/*" : [
-				"../utils/*"
-			] ,
-			"@@components" : [
-				"src/utils/components/index.ts"
-			] ,
-			"@@components/*" : [
-				"src/utils/components/*"
-			] ,
-			"@@requester" : [
-				"src/common/requester/index"
-			] ,
-			"@@requester/*" : [
-				"src/common/requester/*"
-			] ,
-			"@@requests" : [
-				"src/requests/index"
-			] ,
-			"@@requests/*" : [
-				"src/requests/*"
-			] ,
-			"@@public/*" : [
-				"public/*"
-			],
-			"@@pages/*" : [
-				"src/pages/*"
-			],
-			"@@reaxels" : [
-				"src/reaxels/index"
-			],
-			"@@reaxels/*" : [
-				"src/reaxels/*"
-			],
-			"@@mobxState" : [
-				"src/common/MobxState.ts"
-			] 
-			
-		} ,
-		"preserveConstEnums" : true ,
-		"removeComments" : true ,
-		"sourceMap" : true ,
-		"target" : "ES2020" ,
-		"watch" : true ,
-		"types" : [ "index.d.ts" ] ,
-		"allowSyntheticDefaultImports" : true
+		]
 	} ,
+	"references" : [
+		{
+			"path" : "../../"
+		}
+	] ,
+	"extends" : "../../tsconfig.paths.json" ,
 	"include" : [
 		"**/*.ts" ,
-		"**/*.tsx" ,
-		"src/*" ,
-		"src" ,
-	
+		"**/*.tsx"
 	] ,
 	"exclude" : [
 		"node_modules" ,
 		"dist" ,
 		".git" ,
 		".idea" ,
-		".svn" ,
-		"tsconfig.json"
+		".svn"
 	]
 }

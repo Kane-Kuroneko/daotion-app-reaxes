@@ -1,4 +1,4 @@
-const webpackDevConfig = merge(webpack_base_config , webpack_devserver_config);
+const webpackDevConfig = merge(webpackConfig , webpack_devserver_config);
 
 const webpackDevServer = () => {
 	try {
@@ -18,8 +18,6 @@ const webpackDevServer = () => {
 	}
 };
 
-console.log(repo);
-
 webpackDevServer();
 
 import {
@@ -32,9 +30,9 @@ import {
 	method ,
 	analyze ,
 	experimental ,
+	webpackConfig
 } from '../build/entrance.mjs';
 import { merge } from "webpack-merge";
-import { webpack_base_config } from '../build/webpack.base.config.mjs';
 import { webpack_devserver_config } from '../build/webpack.devserver.config.mjs';
 import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';

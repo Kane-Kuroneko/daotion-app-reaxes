@@ -1,3 +1,4 @@
+import { merge } from "webpack-merge";
 
 
 /**
@@ -84,9 +85,14 @@ if(repoPackages.every((repoName) => repoName !== repo )){
 	throw new Error(`this repo "${ repo }" is not a valid business package`);
 }
 
+const repoWebpackConfig = (await import(`${repoRoot}/webpack.partial.mjs`)).webpackConfig;
+export const webpackConfig = merge(webpack_base_config , repoWebpackConfig);
+
+
 import {
 	getPort ,
 	overload,
 } from './toolkits.mjs';
 import { fileURLToPath } from "url";
 import path from "path";
+import { webpack_base_config } from "./webpack.base.config.mjs";

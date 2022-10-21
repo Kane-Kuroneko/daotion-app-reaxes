@@ -1,0 +1,7 @@
+{
+	"name" : "requester" ,
+	"main" : "src",
+	"dependencies" : {
+		"lodash": "^4.17.21"
+	}
+}

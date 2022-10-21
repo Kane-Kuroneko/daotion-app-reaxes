@@ -11,10 +11,25 @@
 		"jsx" : "react" ,
 		"resolveJsonModule" : true ,
 		"strictFunctionTypes" : false ,
-		"strict" : true ,
+		"strict" : false ,
 		"strictBindCallApply" : false ,
 		"strictNullChecks" : false ,
 		"allowUnreachableCode" : true ,
+		"module" : "CommonJS" ,
+		"moduleResolution" : "node" ,
+		"noEmit" : true ,
+		"noImplicitAny" : false ,
+		"noImplicitReturns" : false ,
+		"noImplicitUseStrict" : false ,
+		"noUnusedLocals" : false ,
+		"noUnusedParameters" : false ,
+		"preserveConstEnums" : true ,
+		"removeComments" : true ,
+		"sourceMap" : true ,
+		"target" : "ES2020" ,
+		"watch" : true ,
+		"types" : [ ] ,
+		"allowSyntheticDefaultImports" : true ,
 		"lib" : [
 			"ES5" ,
 			"ES6" ,
@@ -49,41 +64,20 @@
 			"ESNext.Array" ,
 			"ESNext.Intl" ,
 			"ESNext.Symbol" ,
-			"react",
+			"react" ,
 			"DOM"
-		] ,
-		"module" : "CommonJS" ,
-		"moduleResolution" : "node" ,
-		"noEmit" : true ,
-		"noImplicitAny" : false ,
-		"noImplicitReturns" : false ,
-		"noImplicitUseStrict" : false ,
-		"noUnusedLocals" : false ,
-		"noUnusedParameters" : false ,
-		"paths" : {
-			
-		} ,
-		"preserveConstEnums" : true ,
-		"removeComments" : true ,
-		"sourceMap" : true ,
-		"target" : "ES2020" ,
-		"watch" : true ,
-		"types" : [ "index.d.ts" ] ,
-		"allowSyntheticDefaultImports" : true
+		]
 	} ,
 	"include" : [
+		"workspace.d.ts" ,
 		"**/*.ts" ,
-		"**/*.tsx" ,
-		"src/*" ,
-		"src" ,
-	
+		"**/*.tsx"
 	] ,
 	"exclude" : [
 		"node_modules" ,
 		"dist" ,
 		".git" ,
 		".idea" ,
-		".svn" ,
-		"tsconfig.base.json"
+		".svn"
 	]
 }

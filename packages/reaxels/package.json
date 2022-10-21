@@ -1,0 +1,7 @@
+{
+	"name" : "reaxels" ,
+	"main" : "src" ,
+	"dependencies" : {
+		"reaxes" : "~0.10.11"
+	}
+}
