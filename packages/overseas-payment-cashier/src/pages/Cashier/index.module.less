@@ -1,0 +1,187 @@
+@media screen and (min-width: 800px){
+	html{
+		font-size: calc(480px/375);
+	}
+}
+
+@media screen and (max-width: 800px) {
+	html{
+		font-size: calc(100vw/375);
+	}
+	
+}
+.cashier-container{
+	display: flex;
+	flex-direction: column;
+	padding: 16rem 16rem 32rem 16rem;
+	max-width: 480px;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+}
+
+.header{
+	width: 64rem;
+	height: 16rem;
+}
+
+.amount{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 32rem 0;
+	
+	.time{
+		font-weight: 500;
+		font-size: 14rem;
+		line-height: 1.4;
+		color: rgba(22, 22, 26, 0.6);
+	}
+	
+	.number{
+		display: flex;
+		align-items: baseline;
+		font-weight: 600;
+		font-size: 48rem;
+		line-height: 1.4;
+		color: #0070F3;
+	}
+	
+	.unit{
+		font-size: 36rem;
+	}
+}
+
+.transaction-detail{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	gap: 24rem;
+}
+
+.order-id{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	
+	.order-id-title{
+		font-weight: 400;
+		font-size: 13rem;
+		color: rgba(22, 22, 26, 0.6);
+	}
+	
+	.id-text{
+		font-weight: 400;
+		font-size: 13rem;
+		color: #16161A;
+	}
+}
+
+
+.text-info{
+	width: 100%;
+	font-weight: 500;
+	font-size: 13rem;
+	text-align: center;
+	line-height: 18rem;
+	color: rgba(22, 22, 26, 0.8);
+}
+
+.qr-code{
+	width: 240rem;
+	max-width: 800px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.btn{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 16rem;
+	background: #0070F3;
+	border-radius: 12rem;
+	border: unset;
+	color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: bottom 16rem right 16rem;
+	font-weight: 500;
+	font-size: 14rem;
+	
+	svg{
+		flex: 1;
+		width: 17rem;
+		height: 18rem;
+	}
+}
+
+.transform{
+	position: fixed;
+	top: 6rem;
+	right: 6rem;
+	display: flex;
+	gap: 6rem;
+}
+
+.transform-btn{
+	font-size: 12rem;
+}
+
+.result-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 8rem;
+	gap: 24rem;
+	
+	svg{
+		width: 249rem;
+		height: 150rem;
+	}
+}
+
+.result-text{
+	font-weight: 500;
+	font-size: 16rem;
+	text-align: center;
+	color: #16161A;
+}
+
+.default-info-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	gap: 24rem;
+}
+
+.copyed{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 24rem;
+	width: 136rem;
+	height: 136rem;
+	//top: 288rem;
+	//left: 120rem;
+	background: rgba(22, 22, 26, 0.8);
+	border-radius: 12rem;
+	
+	svg{
+		width: 34rem;
+		height: 25rem;
+	}
+	
+	.copyed-text{
+		font-weight: 400;
+		font-size: 17rem;
+		text-align: center;
+		color: #FFFFFF;
+	}
+}

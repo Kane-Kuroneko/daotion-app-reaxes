@@ -1,12 +1,28 @@
 {
-	"name" : "daotion-app-web" ,
-	"scripts" : {
-		"start" : "" ,
-		"build" : ""
-	} ,
-	"packageDependencis" : [
-		"utils" ,
-		"reaxes" ,
-		"requester"
-	]
+	"name": "daotion-app-web",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "",
+		"build": ""
+	},
+	"prettier": {
+		"printWidth": 120,
+		"tabWidth": 3,
+		"useTabs": true,
+		"semi": true,
+		"jsxSingleQuote": false,
+		"singleQuote": true,
+		"trailingComma": "all",
+		"bracketSameLine": false,
+		"arrowParens": "always",
+		"bracketSpacing": true,
+		"parser": "typescript"
+	},
+	"devDependencies": {
+		"prettier": "2.7.1",  
+		"webpack": "5.72.0"
+	},
+	"dependencies": {
+		"antd": "4.22.7"
+	}
 }

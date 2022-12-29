@@ -1,6 +1,7 @@
 {
 	"name" : "reaxels" ,
 	"main" : "src" ,
+	"version" : "1.0.0" ,
 	"dependencies" : {
 		"reaxes" : "~0.10.11"
 	}

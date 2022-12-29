@@ -1,0 +1,122 @@
+.order-type-overview-container{
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 24px;
+	gap: 16px;
+	width: 100%;
+	background: #FFFFFF;
+	border-radius: 8px;
+	min-width:400px;
+	
+	.order-type-title{
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 24px;
+		color: #16161A;
+	}
+	
+	.total-amount{
+		display: flex;
+		align-items: center;
+		padding: 12px 0;
+		gap: 20px;
+		font-size: 14px;
+		
+		
+		.total-amount-content{
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			width: 100%;
+			font-weight: 500;
+			font-size: 30px;
+			line-height: 42px;
+			color: #000000;
+		}
+		
+		.total-amount-title{
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 1.4;
+			color: rgba(22, 22, 26, 0.6);
+		}
+	}
+	
+	.order-info{
+		display: flex;
+		flex-direction: column;
+		padding: 24px;
+		gap: 24px;
+		width: 100%;
+		border: 1px solid rgba(22, 22, 26, 0.08);
+		border-radius: 24px;
+		
+		.data-title{
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 1.4;
+			color: #16161A;
+		}
+		
+		.order-info-list{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 24px;
+			width: 100%;
+			
+			.order-info-row:last-child{
+				border-bottom: none;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.order-info-row{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 0 0 24px 0;
+	width: 100%;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	
+	.rowLeft{
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 20px;
+		color: #16161A;
+	}
+	
+	.row-right{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		
+		
+		.row-right-amount{
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 1.4;
+			color: #000000;
+		}
+		
+		.row-right-order-amount{
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 1.4;
+			color: rgba(22, 22, 26, 0.8);
+		}
+	}
+}
+
+
+
+
+

@@ -47,7 +47,7 @@ const useSafeDispatch = <T>(dispatch: (...args: T[]) => void) => {
  *  登录中的使用
  *  const { run, isLoading } = useAsync(undefined, { throwOnError: true });
  *  try {
- *       await run(login(values));
+ *       await run(Logo(values));
  *      } catch (e:any) {
  *       onError(e);
  *     }

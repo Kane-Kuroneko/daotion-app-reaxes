@@ -1,4 +1,4 @@
-import { merge } from "webpack-merge";
+
 
 
 /**
@@ -19,7 +19,7 @@ export let {
 	experimental = null ,
 } = overload(args , [
 	{
-		regExp : /\bdaotion-app-web|daotion-demo-web|daotion-honmepage-web\b/ ,
+		regExp : /\bdaotion-app-web|daotion-demo-web|daotion-honmepage-web|overseas-payment-cashier|overseas-payment-merchant-background-admin|overseas-payment-merchant-operation-platform\b/ ,
 		key : "repo" ,
 	} ,
 	{
@@ -63,7 +63,8 @@ if ( !node_env ) {
 }
 /*如果是dev环境则默认开启实验特性,除非明确说明*/
 if ( !experimental ) {
-	node_env === 'development' ? experimental = 'experimental' : experimental = 'non-exp';
+	// node_env === 'development' ? experimental = 'experimental' : experimental = 'non-exp';
+	experimental = 'non-exp';
 }
 
 export const rootPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../');
@@ -77,6 +78,7 @@ export const repoPackages = [
 	"daotion-app-web" ,
 	"daotion-demo-web" ,
 	"daotion-honmepage-web" ,
+	"overseas-payment-cashier" ,
 	"overseas-payment-merchant-background-admin" ,
 	"overseas-payment-merchant-operation-platform" ,
 ];
@@ -85,9 +87,6 @@ if(repoPackages.every((repoName) => repoName !== repo )){
 	throw new Error(`this repo "${ repo }" is not a valid business package`);
 }
 
-const repoWebpackConfig = (await import(`${repoRoot}/webpack.partial.mjs`)).webpackConfig;
-export const webpackConfig = merge(webpack_base_config , repoWebpackConfig);
-
 
 import {
 	getPort ,
@@ -95,4 +94,4 @@ import {
 } from './toolkits.mjs';
 import { fileURLToPath } from "url";
 import path from "path";
-import { webpack_base_config } from "./webpack.base.config.mjs";
+import { merge } from "webpack-merge";

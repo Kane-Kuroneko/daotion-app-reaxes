@@ -19,12 +19,12 @@ export const Timer = class {
    * @param remaining {number}
    */
   constructor() {
-    const interval = () => {
+    const interval = (first = true) => {
       this.#status = true;
       if (this.#currentTime >= 1000) {
         this.#currentTimeout = setTimeout(() => {
           this.#currentTime -= 1000;
-          interval();
+          interval(false);
           this.#subscribeList.forEach(fn => {
             try {
               fn(this.#currentTime);
@@ -48,7 +48,7 @@ export const Timer = class {
         this.#status = false;
       }
       /*只要倒计时开始了就直接执行一次订阅*/
-      this.#subscribeList.forEach(fn => {
+      first && this.#subscribeList.forEach(fn => {
         try {
           fn(this.#currentTime);
         } catch (e) {

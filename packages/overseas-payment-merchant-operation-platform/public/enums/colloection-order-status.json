@@ -1,0 +1,22 @@
+[
+	{
+		"label": "无",
+		"status" : 0
+	},
+	{
+		"label": "待支付",
+		"status" : 1
+	},
+	{
+		"label": "已取消",
+		"status" : 2
+	},
+	{
+		"label": "支付失败",
+		"status" : 3
+	},
+	{
+		"label": "已支付",
+		"status" : 4
+	}
+]

@@ -1,0 +1,76 @@
+.content-wrap {
+	background-color : rgb(245,245,245);
+	height : calc(100vh - 48px);
+	overflow-y : hidden;
+	display: flex;
+	flex-direction: column;
+	
+	.content-space {
+		width : 100%;
+		background-color : #fff;
+		padding : 16px 32px;
+	}
+	
+	.content-gray-bg {
+		width : 100%;
+		flex: 1 ;
+		padding : 24px;
+		box-sizing: border-box;
+		overflow-y : scroll;
+	}
+	
+	.content-components {
+		width : 100%;
+		height : 100%;
+		border-radius : 8px;
+	}
+	
+	.page-title{
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 28px;
+		color: rgba(0, 0, 0, 0.85);
+	}
+	
+	
+}
+
+.layout-global::-webkit-scrollbar {
+	width: 2px;
+	height: 10px;
+	&:hover {
+		width: 3px;
+	}
+}
+
+.layout-global::-webkit-scrollbar-thumb {
+	background: #d9d9d9;
+	border-radius: 10px;
+	border-color: transparent;
+}
+
+.layout-global::-webkit-scrollbar-thumb:hover {
+	background: #333333;
+	width: 6px;
+	border: 1px solid #333333;
+}
+
+.sider-menu-container{
+	:global{
+		.ant-menu-item,.ant-menu-submenu,.ant-menu-item-selected {
+			.ant-menu-title-content {
+				padding-left: 16px;
+			}
+		}
+		
+	}
+}
+
+.home-bread-crumb{
+	color: dimgray;
+}
+
+.blue-bread-crumb-item {
+	cursor: pointer;
+	color: #0070f3;
+}

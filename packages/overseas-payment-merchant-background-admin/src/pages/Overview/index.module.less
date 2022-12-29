@@ -1,0 +1,96 @@
+@media screen and (max-width: 700px){
+	.order-type-overview{
+		flex-direction: column;
+	}
+}
+
+.overview-container{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	padding: 24px;
+	width: 100%;
+	background-color: #FFFFFF;
+	margin-bottom: 20px;
+	border-radius: 8px;
+
+	
+	:global{
+		.ant-btn.ant-btn-primary{
+			width: 97px;
+			height: 32px;
+			background: #1677FF;
+			border-radius: 4px;
+		}
+	}
+	
+	
+	.overview-title{
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 24px;
+		color: #16161A;
+	}
+	
+	.overview-content{
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		
+		.overview-sub-title{
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 1.4;
+			color: rgba(22, 22, 26, 0.6);
+		}
+		
+		.balance-container{
+			display: flex;
+			align-items: flex-end;
+			gap: 24px;
+			
+			.balance-content{
+				display: flex;
+				flex-direction: column;
+				
+				.balance-amount{
+					font-weight: 500;
+					font-size: 48px;
+					line-height: 61px;
+					color: #16161A;
+				}
+				
+			}
+			
+			.check-detail{
+				font-weight: 500;
+				color: #1677FF;
+			}
+		}
+
+		.withdraw-content{
+			display: flex;
+			flex-direction: column;
+			
+			.withdrawing-amount{
+				font-weight: 500;
+				font-size: 28px;
+				line-height: 140%;
+				color: #16161A;
+			}
+		}
+		
+	}
+}
+
+.order-type-overview{
+	display: flex;
+	padding: 0;
+	gap: 24px;
+	width: 100%;
+	overflow-x: scroll;
+}
+
+
+

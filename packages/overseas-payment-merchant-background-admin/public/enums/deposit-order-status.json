@@ -1,0 +1,18 @@
+[
+	{
+		"label": "无",
+		"status" : 0
+	},
+	{
+		"label": "待审核",
+		"status" : 1
+	},
+	{
+		"label": "已拒绝",
+		"status" : 2
+	},
+	{
+		"label": "已充值",
+		"status" : 3
+	}
+]

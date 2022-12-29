@@ -18,3 +18,16 @@ or
 
 
 
+
+代码中的绝对路径别名(#开头为根目录全局资源,@@开头为当前repo内的资源):
+
+| pathName        | absolute path         | meaning                                            |
+|-----------------|-----------------------|----------------------------------------------------|
+| `#project-root` | `/`                   | 工程根目录                                              |
+| `#reaxes`       | `/packages/reaxes`    | reaxes核心库                                          |
+| `#requester`    | `/packages/requester` | 为所有业务工程提供统一的请求方法,但根据每个业务模块特色自定义钩子                  |
+| `#reaxels`      | `/packages/reaxels`   | 全局统一的reaxel工厂,如I18n,暗夜模式等                          |
+| `#toolkits`     | `/packages/toolkits`  | 某些工程可通用的业务方法(如daotion系工程,都会判断两个address相等性),与具体业务相关 |
+| `#utils`        | `/packages/utils`     | 与具体业务无关的通用方法和react hooks                           |
+|                 |                       |                                                    |
+|                 |                       |                                                    |

@@ -1,0 +1,18 @@
+[
+	{
+		"duration": 1,
+		"label": "今日"
+	},
+	{
+		"duration": 2,
+		"label": "近7天"
+	},
+	{
+		"duration": 3,
+		"label": "近30天"
+	},
+	{
+		"duration": 0,
+		"label": "所有"
+	}
+]

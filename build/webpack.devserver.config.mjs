@@ -19,7 +19,7 @@ export const webpack_devserver_config = {
 		proxy : proxy_configuration.reduce((accu , config) => (accu[config.proxy_path_dev] = {
 			target : config.server_host ,
 			pathRewrite : config.path_rewrite ,
-			secure : config.secure , 
+			secure : config.secure ,
 		},accu) , {}),
 		
 	} ,
@@ -37,15 +37,6 @@ export const webpack_devserver_config = {
 				console.log(`compiled successfully\n`);
 			} ,
 		}),
-		new HtmlWebpackPlugin({
-			template : path.resolve(repoRoot,"public/index.template.ejs")  ,
-			title : repo ,
-			filename : 'index.html' ,
-			minify : false ,
-			hash : true ,
-			excludeChunks : [] ,
-			inject : false ,
-		}) ,
 	],
 };
 
@@ -53,9 +44,6 @@ export const webpack_devserver_config = {
 import {
 	port ,
 	repo ,
-	repoRoot,
-
 } from './entrance.mjs';
 import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { LoggerWebpackPlugn,LogWhenSucceed } from '../build/webpack.plugins.mjs';

@@ -1,0 +1,15 @@
+{
+	"复制成功" : "A copia foi bem sucedida",
+	"交易剩余时间" : "Expira em",
+	"订单号" : "Order ID",
+	"复制Pix代码" : " PIX Cópia é Cola",
+	"请打开您的支付应用程序并扫描下方二维码进行支付或复制下方的 Pix 码并粘贴到您的支付应用程序中以完成购买。" : "Por favor abra o seu aplicativo de pagamento  e escaneie o código QR abaixo para pagar ou copie o código Pix abaixo e cole em seu app de pagamenm para f inalizar a compra.",
+	"选择付款方式" : "Escolha o método de pagamento",
+	"已成功": "Sucesso",
+	"失败": "Erro",
+	"已取消": "Cancelado",
+	"付款成功完成": "Pagamento concluído com sucesso",
+	"错误信息代码": "error message",
+	"支付超时，订单已取消": "Pagamento expirado, pedido cancelado",
+	"已复制": "Tenha sido copiado"
+}

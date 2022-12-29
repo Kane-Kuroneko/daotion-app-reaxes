@@ -8,3 +8,5 @@ export const logProxy = ( source:object = {} ) => JSON.parse( stringify( _.clone
 /*@ts-ignore*/
 window.logProxy = logProxy;
 
+
+import {stringify} from './';

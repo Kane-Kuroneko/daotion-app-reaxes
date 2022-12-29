@@ -1,4 +1,6 @@
-const webpackDevConfig = merge(webpackConfig , webpack_devserver_config);
+Error.stackTraceLimit = 30;
+
+const webpackDevConfig = merge(webpackConfigWithRepo , webpack_devserver_config);
 
 const webpackDevServer = () => {
 	try {
@@ -30,8 +32,8 @@ import {
 	method ,
 	analyze ,
 	experimental ,
-	webpackConfig
 } from '../build/entrance.mjs';
+import { webpackConfigWithRepo } from '../build/webpack.repo.config.mjs';
 import { merge } from "webpack-merge";
 import { webpack_devserver_config } from '../build/webpack.devserver.config.mjs';
 import WebpackDevServer from 'webpack-dev-server';

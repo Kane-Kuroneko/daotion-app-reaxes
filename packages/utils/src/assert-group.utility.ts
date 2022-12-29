@@ -56,7 +56,7 @@ export const assert1of = <Expected extends any,ExpressionList extends any[]>( ex
 export const assert1ofTrue = (expressionList , consoleWarn = false) => assert1of( true , expressionList ,consoleWarn);
 export const assert1ofFalse = (expressionList , consoleWarn = false) => assert1of( false , expressionList ,consoleWarn );
 
-
+import {crayon} from './'
 
 
 /**

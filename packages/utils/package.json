@@ -6,7 +6,6 @@
 	"main": "src",
 	"private": true,
 	"version": "1.0.0",
-	"packageDependencis": [],
 	"dependencies": {
 		"shallowequal": "1.1.0"
 	}
