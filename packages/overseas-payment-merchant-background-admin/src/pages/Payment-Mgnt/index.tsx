@@ -7,8 +7,7 @@ export const PayoutManagement = reaxper(() => {
 		selectedOrders ,
 		setSelectedOrders,
 		loading
-	} =
-		reaxel_payment_mgnt();
+	} = reaxel_payment_mgnt();
 	const { navigate } = toolkits.useRouter();
 	const { current: badge } = useRef(Math.random());
 
