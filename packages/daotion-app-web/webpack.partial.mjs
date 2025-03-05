@@ -1,25 +1,51 @@
-import path from 'path';
-import webpack from 'webpack';
-import { repoRoot } from '/build/entrance.mjs';
+const {
+	ProvidePlugin ,
+	DefinePlugin,
+} = webpack;
 
-const { ProvidePlugin } = webpack;
+const __ENV_CONFIG__ = (await import(`./proxy.configuration.json`,{assert: { type: 'json' }})).default;
 
 export const webpackConfig = {
+	devServer : {
+		port : await getPort(3010),
+	},
 	resolve: {
 		alias: {
+			'@@root': path.resolve(repoRoot),
 			'@@pages': path.resolve(repoRoot, 'src/pages'),
 			'@@reaxels': path.resolve(repoRoot, 'src/reaxels'),
+			'@@utils': path.resolve(repoRoot, 'src/utils'),
 			'@@requester': path.resolve(repoRoot, 'src/requester'),
+			'@@requests': path.resolve(repoRoot, 'src/requests'),
 			'@@toolkits': path.resolve(repoRoot, 'src/toolkits'),
 			'@@public': path.resolve(repoRoot, 'public'),
+			'@@SVGcomponents': path.resolve(repoRoot, 'src/svg-comps'),
 			'@@Xcomponents': path.resolve(repoRoot, 'src/Xcomponents'),
 			'--Components--': path.resolve(repoRoot, 'src/pages/--Components--'),
 		},
 	},
 	plugins: [
+		new NodePolyfillPlugin(),
+		new HtmlWebpackPlugin({
+			template: path.resolve(repoRoot, 'public/index.template.ejs'),
+			filename: 'index.html',
+			minify: false,
+			hash: true,
+			excludeChunks: [],
+			inject: false,
+		}),
+		new DefinePlugin({
+			__IS_MOCK__ : mock ? 'true' : 'false' ,
+			__ENV__ : JSON.stringify(env) ,
+			__ENV_CONFIG__ : JSON.stringify(__ENV_CONFIG__) ,
+			__NODE_ENV__ : JSON.stringify(node_env),
+			__METHOD__ : JSON.stringify(method),
+			__EXPERIMENTAL__ : JSON.stringify(experimental === 'experimental'),
+		}),
 		new ProvidePlugin({
 			orzPromise: ['@@utils', 'orzPromise'],
 			utils: ['@@utils'],
+			antd: ['antd'],
 			toolkits: ['@@toolkits'],
 			crayon: ['@@utils', 'crayon'],
 			logProxy: ['@@utils', 'logProxy'],
@@ -32,3 +58,10 @@ export const webpackConfig = {
 		}),
 	],
 };
+
+import path from 'path';
+import webpack from 'webpack';
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
+import { getPort } from '../../build/toolkits.mjs';
+import {method, repo, repoRoot , mock , env , node_env , experimental, } from '../../build/entrance.mjs';
+import HtmlWebpackPlugin from 'html-webpack-plugin';

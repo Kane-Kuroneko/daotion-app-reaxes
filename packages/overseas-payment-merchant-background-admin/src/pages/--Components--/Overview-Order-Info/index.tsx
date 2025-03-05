@@ -47,7 +47,7 @@ export const OverviewOrderInfoComponent = reaxper((props : {
 			text : '充值' ,
 			store : depositOrder ,
 			setState : depositOrderSetState ,
-			svg : <SVGOverviewIconDeposit/> ,
+			svg : <SVGOverviewIconDeposit /> ,
 		} ,
 	};
 	const {
@@ -73,15 +73,15 @@ export const OverviewOrderInfoComponent = reaxper((props : {
 					} }
 					value = { store.duration }
 					optionType = "button"
-					style={{
-						userSelect : 'none',
-					}}
+					style = { {
+						userSelect : 'none' ,
+					} }
 				/>
 			</div>
-			{store.info && !store.loading
+			{ store.info && !store.loading
 				? <>
 					<div className = { less.totalAmount }>
-						{ svg }
+						<span>{ svg }</span>
 						<div className = { less.totalAmountContent }>
 							<span className = { less.totalAmountTitle }>
 								{ text }总金额 (R$)
@@ -110,9 +110,9 @@ export const OverviewOrderInfoComponent = reaxper((props : {
 						</div>
 					</div>
 				</>
-				: <OrderInfoSkeleton/>
+				: <OrderInfoSkeleton />
 			}
-			
+		
 		</div>
 	);
 });
@@ -145,50 +145,67 @@ export const OrderInfoSkeleton = reaxper(() => {
 				display : "flex" ,
 				flexDirection : "column" ,
 				gap : 24 ,
-				width: '100%',
-				marginTop: '16px'
+				width : '100%' ,
+				marginTop : '16px' ,
 			} }
 		>
-			<div style={{
-				display : 'flex',
-				alignItems : 'center',
-				gap : '16px',
-				marginBottom: 24
-			}} >
-				<Skeleton.Avatar active size={'large'} />
-				<div style={{
-					display: "flex",
-					flexDirection: "column",
-				}}>
-					<Skeleton.Button active style={{ width: 100, height: 20 }}/>
-					<Skeleton.Button active style={{ width: 184, height: 35 }}/>
+			<div
+				style = { {
+					display : 'flex' ,
+					alignItems : 'center' ,
+					gap : '16px' ,
+					marginBottom : 24 ,
+				} }
+			>
+				<Skeleton.Avatar
+					active
+					size = { 'large' }
+				/>
+				<div
+					style = { {
+						display : "flex" ,
+						flexDirection : "column" ,
+					} }
+				>
+					<Skeleton.Button
+						active
+						style = { { width : 100 , height : 20 } }
+					/>
+					<Skeleton.Button
+						active
+						style = { { width : 184 , height : 35 } }
+					/>
 				</div>
 			</div>
-			<Skeleton.Button active style={{width: 100, height: 20}}/>
-			{[0, 1, 2, 3].map((item, id) => {
-				return(
+			<Skeleton.Button
+				active
+				style = { { width : 100 , height : 20 } }
+			/>
+			{ [ 0 , 1 , 2 , 3 ].map((item , id) => {
+				return (
 					<div
-						key={id}	
-						style={{
-						display: "flex",
-						flexDirection: "column",
-						width: '100%',
-						marginBottom: 16,
-						textAlign: "right"
-					}}>
+						key = { id }
+						style = { {
+							display : "flex" ,
+							flexDirection : "column" ,
+							width : '100%' ,
+							marginBottom : 16 ,
+							textAlign : "right" ,
+						} }
+					>
 						<Skeleton.Button
-							style = { { width : '100%' , height : 20} }
+							style = { { width : '100%' , height : 20 } }
 							active
 						/>
 						<Skeleton.Button
-							style = { { width : 100  , height : 20 } }
+							style = { { width : 100 , height : 20 } }
 							active
 						/>
 					</div>
-				)
-			})}
+				);
+			}) }
 		</div>
-	)
+	);
 });
 
 

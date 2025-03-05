@@ -7,7 +7,7 @@ export const LayoutHeader = reaxper(() => {
 	const { Select , Dropdown , Menu } = antd;
 	return (
 		<div className = { less.layoutHeader }>
-			<SVGHeaderDepayLogo />
+			<SVGHeaderRainpayLogo />
 			<div className = { less.layoutHeaderRight }>
 				<Dropdown
 					overlay = { <Menu
@@ -99,7 +99,7 @@ import {
 } from '@@reaxels';
 import {
 	SVGHeaderAvatar ,
-	SVGHeaderDepayLogo ,
+	SVGHeaderRainpayLogo ,
 	SVGHeaderLogoutIcon ,
 	SVGHeaderResetpwdIcon ,
 	SVGHeaderTimezoneBrazil ,

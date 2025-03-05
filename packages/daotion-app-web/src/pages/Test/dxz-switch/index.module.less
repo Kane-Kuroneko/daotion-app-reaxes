@@ -1,0 +1,64 @@
+
+.primary:global(.ant-switch) {
+	width: 48px;
+	height: 24px;
+	border-radius: 32px;
+	background: #f4f4f4;
+	
+	&-checked {
+		background: #2a85ff;
+		
+		:global {
+			.ant-switch-handle {
+				left: calc(100% - 18px - 4px);
+			}
+		}
+	}
+	
+	:global {
+		.ant-switch-handle {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+		}
+		
+		.ant-switch-handle::before {
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), inset 0px 2px 2px #ffffff, inset 0px -1px 1px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+.secondary:global(.ant-switch) {
+	width: 40px;
+	height: 20px;
+	min-width: unset;
+	background: #e6e8ec;
+	border-radius: 32px;
+	
+	&:focus {
+		box-shadow: unset;
+	}
+	
+	&-checked {
+		background: #a5c7ee;
+		
+		:global(.ant-switch-handle) {
+			left: calc(100% - 18px);
+		}
+	}
+	
+	:global {
+		.ant-switch-handle {
+			margin-left: 2px;
+			width: 12px;
+			height: 12px;
+			border-radius: 32px;
+			top: 4px;
+			
+			&::before {
+				background: #0070f3;
+				border-radius: 32px;
+			}
+		}
+	}
+}

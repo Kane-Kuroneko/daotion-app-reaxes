@@ -68,8 +68,8 @@ export const OrderInfoSearch = reaxper(() => {
 							onChange = { ([ start , end ]) => {
 								setFields({
 									range_picker_order_created_date : [
-										dayjs(start).tz('America/Sao_Paulo') ,
-										dayjs(end).tz('America/Sao_Paulo') ,
+										utils.dayjs(start).tz('America/Sao_Paulo') ,
+										utils.dayjs(end).tz('America/Sao_Paulo') ,
 									] ,
 								});
 							} }
@@ -127,7 +127,7 @@ export const OrderInfoSearch = reaxper(() => {
 
 export const OrderInfoTable = reaxper(() => {
 	const path = toolkits.useRouter().params['*'];
-	const { get_enum_order_list_map , collection_order_list,pending } = reaxel_collection_order(path);
+	const { get_enum_order_list_map , collection_order_list,pending, changeModalShow } = reaxel_collection_order(path);
 	const enum_order_status = get_enum_order_list_map(path);
 	const columns : ColumnsType<DataType> = [
 		{
@@ -136,7 +136,7 @@ export const OrderInfoTable = reaxper(() => {
 			fixed : 'left' ,
 			render : (_ , { orderID }) => {
 				return (
-					<a>{ orderID }</a>
+					<a onClick={() => {changeModalShow(true)}}>{ orderID }</a>
 				);
 			} ,
 		} ,
@@ -166,13 +166,31 @@ export const OrderInfoTable = reaxper(() => {
 			} ,
 		} ,
 		{
-			title : '用户名' ,
-			dataIndex : 'userName' ,
+			title : '商户/ID' ,
+			dataIndex : 'mchName' ,
 		} ,
-		{
+		...((path === 'collection-order' || path ==='payment-order') ? [{
 			title : '手续费' ,
 			dataIndex : 'tax' ,
-		} ,
+		} ] : []),
+		...(path === 'deposit-order' ? [
+			{
+				title : '充值USDT数量' ,
+				dataIndex : 'usdt' ,
+			} ,
+			{
+				title : '付款地址' ,
+				dataIndex : 'sourceAddress' ,
+				width : 300,
+				
+			} ,
+			{
+				title : 'RainPay收款地址' ,
+				dataIndex : 'targetAddress' ,
+				width : 300,
+				
+			} ,
+		] : []),
 		{
 			title : '订单创建时间' ,
 			dataIndex : 'createTimestamp' ,
@@ -288,7 +306,6 @@ import {
 import { reaxel_collection_order } from './reaxel--collection-order';
 import { DatePicker } from '@@Xcomponents';
 import { time_localize_Brazil } from '#toolkits/overseas-payment';
-import dayjs from 'dayjs';
 import {ConfigProvider} from 'antd';
 import { ColumnsType } from "antd/es/table";
 import {

@@ -1,0 +1,33 @@
+.wallet-item {
+	&:hover {
+		background: #e6e8ec;
+	}
+}
+.wallet-item:not(:last-child) {
+	margin-bottom: 8px;
+}
+
+.blue {
+	color: #3772ff;
+}
+.loader {
+	display: flex;
+	align-items: center;
+	margin-right: 24px;
+	width: 48px;
+	height: 48px;
+	border: 7px solid #d9d9d9;
+	border-bottom-color:#0070f3;
+	border-radius: 50%;
+	display: inline-block;
+	-webkit-animation: rotation 2s linear infinite;
+	animation: rotation 2s linear infinite;
+}
+@-webkit-keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

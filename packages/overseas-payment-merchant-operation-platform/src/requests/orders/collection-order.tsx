@@ -1,7 +1,7 @@
 //@ts-nocheck
 
 export const request_collection_order = (payload:PayloadBody<Order__collection_order.payload>) => {
-	return request.post<Order__collection_order.response,typeof payload>(`/mch/order-pay-in-list` , {
+	return request.post<Order__collection_order.response,typeof payload>(`/agent/order-pay-in-list` , {
 		body : payload ,
 	});
 };

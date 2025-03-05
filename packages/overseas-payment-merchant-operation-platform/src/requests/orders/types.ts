@@ -9,7 +9,8 @@ export namespace Order__collection_order {
 			"orderID" : string,
 			"state" : number,
 			"money" : number,
-			"userName" : string,
+			"mchName" : string,
+			"userName": string,
 			"tax" : number,
 			"createTimestamp" : number,
 			"updateTimestamp" : number
@@ -38,7 +39,7 @@ export namespace Order__payment_order {
 			"orderID" : string,
 			"state" : number,
 			"money" : number,
-			"userName" : string,
+			"mchName" : string,
 			"tax" : number,
 			"createTimestamp" : number,
 			"updateTimestamp" : number
@@ -67,6 +68,7 @@ export namespace Order__withdrawal_order {
 			"orderID" : string,
 			"state" : number,
 			"money" : number,
+			"mchName" : string,
 			"userName" : string,
 			"tax" : number,
 			"createTimestamp" : number,
@@ -94,13 +96,15 @@ export namespace Order__deposit_order {
 		"total" : number,
 		"firstTimestamp" : number,
 		"orderList" : {
-			"orderID" : string,
-			"state" : number,
-			"money" : number,
-			"userName" : string,
-			"tax" : number,
-			"createTimestamp" : number,
-			"updateTimestamp" : number
+			orderID : string,
+			state : number,
+			money : number,
+			usdt : number,
+			mchName: string,
+			sourceAddress : string,
+			targetAddress : string,
+			createTimestamp : number,
+			updateTimestamp : number
 		}[],
 	};
 	export type payload = {

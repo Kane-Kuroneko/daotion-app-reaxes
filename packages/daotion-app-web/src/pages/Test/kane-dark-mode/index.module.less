@@ -1,0 +1,33 @@
+@import "./variables.less";
+
+
+:global(body.light){
+	
+	.bg {
+		
+		background-color: @light-bg-color;
+	}
+	
+}
+
+:global(body.dark){
+	
+	.bg {
+		
+		background-color: @dark-bg-color;
+	}
+	
+}
+
+
+.input{
+	
+	background-color: var(--root-bgcolor);
+	color: var(--font-color);
+	border-color: 1px solid var(--color-border-input);
+}
+
+
+.p {
+	color: var(--font-color);
+}

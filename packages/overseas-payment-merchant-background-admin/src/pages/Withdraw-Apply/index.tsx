@@ -1,6 +1,7 @@
 
 export const OverviewWithdraw = reaxper(() => {
-	const {withdrawStore, overviewInfo, withdrawApply, withdrawSetState, fetchOverviewInfo  } = reaxel_overview_info();
+	const reax_overview_info = reaxel_overview_info();
+	const { withdrawStore , overviewInfo , withdrawApply , withdrawSetState , fetchOverviewInfo } = reax_overview_info;
 	const { navigate } = toolkits.useRouter();
 	const { message, Input, Button, Spin } = antd;
 	
@@ -58,7 +59,8 @@ export const OverviewWithdraw = reaxper(() => {
 				</div>
 				<Button
 					type = "primary"
-					loading={withdrawStore.pending}
+					loading={reax_overview_info.withdrawPending}
+					disabled={withdrawApplyMoney <= 0}
 					onClick = { () => {
 						withdrawApply().then(() => {
 							message.success('已提交申请');

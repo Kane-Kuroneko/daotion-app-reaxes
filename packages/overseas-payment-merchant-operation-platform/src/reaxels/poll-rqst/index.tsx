@@ -3,43 +3,44 @@
  */
 export const reaxel_poll_rqst = function(){
 	const stack = [];
+	const { timer } = reaxel_tick_tock();
+	const usCycle = (frequency:number,runDurFirst:boolean = false) => {
+		let count = 0;
+		return (cb) => (innerCount,invokeTimes) => {
+			if(runDurFirst && count == 0){
+				count ++;
+				return cb(count,count%frequency);
+			}else {
+				if(count !== 0 && count%frequency === 0){
+					count ++;
+					return cb(count,count%frequency);
+				}
+				count ++;
+			}
+		}
+	}
+	
+	const invokeCycle_1s = usCycle(1);
+	
+	timer.subscribe(invokeCycle_1s((innerCount,invokeTimes) => {
+		crayon.blue(`tick ${innerCount}`)
+		
+	}))
 	
 	return () => {
 		
 		return {
-			regist(type:any,cb,duration:number){
-				const timer = new utils.Timer();
-				timer.subscribe(function(){
-					/*闭包记录调用次数,因为timer会直接调用一次,就跳过这次调用*/
-					let count = null;
-					return () => {
-						if(count === null){
-							count = 0;
-						}else{
-							console.log(count , duration);
-							if(count % duration === 0){
-								cb();
-							}
-							count ++;
-						}
-					}
-				}());
-				timer.start(Number.MAX_VALUE);
-				stack.push({
-					type,
-					timer,
-					cb,
-					duration,
-				});
+			regist(cycle,cb){
+				const withCycle = usCycle(cycle);
+				timer.subscribe(withCycle(cb));
 			},
-			
 		};
 	};
 }();
-
+import { reaxel_tick_tock } from '@@reaxels';
 
 const reax_prqst = reaxel_poll_rqst();
-reax_prqst.regist(Symbol(),async () => {
+reax_prqst.regist(6,async (innerCount,invokeTimes) => {
 	console.log(111111111111);
 
 	orzPromise((res) => {
@@ -47,5 +48,5 @@ reax_prqst.regist(Symbol(),async () => {
 	}).then((data) => {
 		crayon.yellow(`subs` , data);
 	})
-},3);
+});
 

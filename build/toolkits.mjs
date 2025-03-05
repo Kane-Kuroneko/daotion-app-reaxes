@@ -39,8 +39,8 @@ export const getIPV4address = () => {
 };
 
 /*自动检查basePort的端口是否可用, 如果不可用则寻找相邻的可用端口作为wds服务器端口*/
-export const getPort = () => {
-	portfinder.basePort = 8080;
+export const getPort = (prot) => {
+	portfinder.basePort = prot||8080;
 	return portfinder.getPortPromise();
 };
 

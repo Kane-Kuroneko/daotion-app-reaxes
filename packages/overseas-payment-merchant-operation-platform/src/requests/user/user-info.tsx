@@ -10,7 +10,7 @@ export const request_modify_password = (
 };
 
 export const request_user_info = () => {
-	return request.post(`/mch/userinfo` , {
+	return request.post(`/agent/user-info` , {
 	}).then((res) => {
 		return res
 	});

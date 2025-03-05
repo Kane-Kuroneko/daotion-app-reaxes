@@ -39,6 +39,7 @@
 			"#toolkits/*" : [ "../toolkits/*" ] ,
 			"#utils" : [ "../utils" ] ,
 			"#statics" : [ "../../statics" ] ,
+			"#Xcomponents" : [ "../x-components" ] ,
 			"@@root/*" : [ "./*" ] ,
 			"@@pages" : [ "src/pages" ] ,
 			"@@pages/*" : [ "src/pages/*" ] ,

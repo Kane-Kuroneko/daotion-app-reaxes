@@ -1,11 +1,11 @@
 Error.stackTraceLimit = 30;
 
-const webpackDevConfig = merge(webpackConfigWithRepo , webpack_devserver_config);
+const webpackDevConfig = merge( webpack_devserver_config,webpackConfigWithRepo );
 
 const webpackDevServer = () => {
 	try {
 		const compiler = webpack(webpackDevConfig);
-		const webpackServer = new WebpackDevServer(webpack_devserver_config.devServer , compiler);
+		const webpackServer = new WebpackDevServer(webpackDevConfig.devServer , compiler);
 		webpackServer.start().then(() => {
 			// console.log(chalk.yellow(`WDS已启动在http://${ getIPV4address() }:${ port }`));
 		}).catch((e) => {

@@ -1,0 +1,56 @@
+.title {
+  display: inline-block;
+  color: #fff;
+  user-select: none;
+  transition: color 0.25s;
+
+  &::after {
+    display: inline-block;
+    width: 12px;
+    height: 8px;
+    margin-left: 6px;
+    content: "";
+
+    background-image: url("@@public/svg/triangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &:hover {
+    color: #24fec1;
+    cursor: pointer;
+  }
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  //width: 324px;
+  width: 125px;
+  padding: 12px 32px;
+  color: #fff;
+  background: rgba(44, 53, 61, 0.9);
+  backdrop-filter: blur(14px);
+  border-radius: 8px;
+}
+
+.item {
+  display: inline-block;
+  //width: 100px;
+  width: 85px;
+
+  &-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+
+    &:hover {
+      color: #24fec1;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import '@@root/src/styles/variable.module.less';
+
+// btn基础样式
+.Xbutton:global(.ant-btn) {
+	border-radius: 12px;
+	line-height: 1 ;
+	box-sizing: border-box ;
+	border-width: 2px;
+	line-height: 8px;
+
+}
+
+// primary基本样式
+.Xbutton:global(.ant-btn-primary) {
+	border-color: #0070F3;
+	background: #0070F3;
+	padding: 8px 12px;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.Xbutton:global(.ant-btn:focus) {
+	border-color: #0070F3;
+	background: #0070F3;
+}
+
+.Xbutton:global(.ant-btn.ant-btn-default:focus) {
+	border-color: #d9d9d9;
+	background: #fff;
+	color: rgba(0, 0, 0, 0.85);
+}
+
+.Xbutton:global(.ant-btn-dangerous.ant-btn-primary:focus) {
+	border-color: #FF3B30;
+    background: #FF3B30;
+}
+.Xbutton:global(.ant-btn-dangerous.ant-btn-default:focus) {
+	border-color: #EF466F;
+	border-width: 2px;
+	color: #FF3B30;
+}
+
+
+// primary类型的danger基本样式
+.Xbutton:global(.ant-btn-primary.ant-btn-dangerous) {
+	border-color: #FF3B30;
+	background: #FF3B30;
+	
+}
+// danger基本样式
+.Xbutton:global(.ant-btn-dangerous) {
+	border-color: #EF466F;
+	border-width: 2px;
+	color: #FF3B30;
+
+}
+
+// 后期根据不同类型不同主题更改样式
+// primary-light/primary-light; default-light/default-light; 
+
+//暗黑主题的disable样式
+.Xbutton:global(.default-dark.ant-btn-default:disabled)  {
+	color: rgba(255, 255, 255, 0.25);
+	border-color: rgba(255, 255, 255, 0.25);
+	background: transparent;
+
+}
+
+// 暗黑主题的边框按钮样式
+.Xbutton:global(.default-dark.ant-btn-default) {
+	border-color: #fff;
+	color: #fff;
+	background: transparent;
+}
+// 暗黑主题下保持danger状态不变
+.Xbutton:global(.default-dark.ant-btn-default.ant-btn-dangerous) {
+	border-color: #EF466F;
+	color: #FF3B30;
+}
+

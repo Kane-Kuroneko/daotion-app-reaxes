@@ -6,14 +6,12 @@ export const reaxel_edit_info = function(){
 
 	
 	const { store : resetPwdStore , setState : setStatePwd } = orzMobx({
-		pending : false ,
 		oldPassword : '' ,
 		newPassword : '' ,
 		checkPassword : '' ,
 	});
 	
 	const { store : setApiStore , setState : setStateApi } = orzMobx({
-		pending : false ,
 		payInCallback : '' ,
 		payOutCallback : '' ,
 		payOutWhitelist :'',
@@ -21,14 +19,14 @@ export const reaxel_edit_info = function(){
 		apiSetModalShow : false ,
 		apiSetModalKey : 'payInCallback' ,
 	});
+	
+	const { pendingState, setPending } = toolkits.orzPending();
+	
 	// 修改密码方法
 	const modify = async () => {
 		const { oldPassword , newPassword  } = resetPwdStore;
-		const reax_storage = reaxel_storage();
-		
-		setStatePwd({
-			pending : true ,
-		});
+		if (pendingState.pending) return;
+		setPending(true)
 		return request_modify_password(async () => (
 			{
 				oldPassword : crypto.MD5(oldPassword).toString() ,
@@ -37,11 +35,11 @@ export const reaxel_edit_info = function(){
 		)).then((res) => {
 			if (res.result !== 0) {
 				setStatePwd({
-					pending : false ,
 					oldPassword : '' ,
 					newPassword : '' ,
 					checkPassword : '' ,
 				})
+				setPending(false)
 				return 'error'
 			} else {
 				const {setAuth} = reaxel_user_auth();
@@ -50,41 +48,42 @@ export const reaxel_edit_info = function(){
 					token : res.newToken ,
 				});
 				setStatePwd({
-					pending : false ,
 					oldPassword : '' ,
 					newPassword : '' ,
 					checkPassword : '' ,
 				});
+				setPending(false)
 			}
 			
 		}).catch((e) => {
-			setStatePwd({
-				pending : false ,
-			});
+			setPending(false)
 		});
 	};
 	
 	// 修改Api方法
 	const setApiConfig = async () => {
+		const { apiSetModalKey } = setApiStore;
+		if (pendingState.pending) return;
+		setPending(true);
 		
-		setStateApi({
-			pending : true ,
-		});
 		return request_user_api_set(async () => {
-			return {
-				payInCallback : setApiStore.payInCallback ,
-				payOutCallback : setApiStore.payOutCallback ,
-				payOutWhitelist : setApiStore.payOutWhitelist.split(';').filter(i => i !== ''),
-				address : setApiStore.address ,
-			};
+			if (apiSetModalKey === 'payOutWhitelist') {
+				return {
+					payOutWhitelist: setApiStore.payOutWhitelist.split(';').filter(i => i !== '')
+				}
+			} else {
+				return {
+					[apiSetModalKey] : setApiStore[apiSetModalKey] ,
+				};
+			}
+			
 		}).then((res) => {
-			setStateApi({
-				pending : false ,
-			});
+			setPending(false)
 		}).catch((e) => {
-			setStateApi({
-				pending : false,
-			});
+			setPending(false)
+			throw {
+				msg: '操作失败,格式错误'
+			}
 		});
 	};
 	const reax_user_info = reaxel_user_info()
@@ -111,6 +110,9 @@ export const reaxel_edit_info = function(){
 			get setStateApi(){
 				return setStateApi;
 			} ,
+			get pending(){
+				return pendingState.pending;
+			},
 			showModal(key){
 				let value = '';
 				if (key === 'payOutWhitelist') {

@@ -1,0 +1,26 @@
+[
+	{
+		"template_name" : "Blank template" ,
+		"SBT_type" : "Title" ,
+		"limit_of_each_address" : "1" ,
+		"maximum_of_total_supply" : 0 ,
+		"revoke_by_issuer" : true ,
+		"burned_by_holder" : true
+	} ,
+	{
+		"template_name" : "Title template" ,
+		"SBT_type" : "Title" ,
+		"limit_of_each_address" : "1" ,
+		"maximum_of_total_supply" : 0 ,
+		"revoke_by_issuer" : true ,
+		"burned_by_holder" : true
+	} ,
+	{
+		"template_name" : "Work certificate template" ,
+		"SBT_type" : "Title" ,
+		"limit_of_each_address" : "1" ,
+		"maximum_of_total_supply" : 0 ,
+		"revoke_by_issuer" : true ,
+		"burned_by_holder" : true
+	}
+]

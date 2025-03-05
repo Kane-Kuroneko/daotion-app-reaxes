@@ -8,19 +8,17 @@ export const reaxel_Fact__timezone = function({
 		timezone : defaultTzDatabaseName ,
 	});
 	
-	dayjs.extend(utc);
-	dayjs.extend(timezone);
 	const processer = (timestamp,options:options) => {
 		let date ;
 		const {unix = false,format,tz} = options;
 		if(unix){
-			date = dayjs.unix(timestamp);
+			date = utils.dayjs.unix(timestamp);
 		}
 		/*如果显式设置时区,就用设置的*/
 		if(tz){
-			date = dayjs.tz(date,tz);
+			date = utils.dayjs.tz(date,tz);
 		}else {
-			date = dayjs.tz(date,store.timezone);
+			date = utils.dayjs.tz(date,store.timezone);
 		}
 		
 		if( format === true ) {
@@ -63,6 +61,5 @@ export const reaxel_Fact__timezone = function({
 		tz? : string;
 	};
 };
-import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";

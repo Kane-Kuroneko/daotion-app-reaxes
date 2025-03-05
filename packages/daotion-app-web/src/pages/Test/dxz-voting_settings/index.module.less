@@ -1,0 +1,109 @@
+.voting-settings-container {
+	.save_cancel {
+		font-size: 16px;
+		width: 292px;
+		height: 48px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		font-weight: bold;
+		padding: 12px 126px;
+		cursor: pointer;
+	}
+	
+	
+	:global {
+		
+		.ant-input-group-addon{
+			background-color: #f4f4f4;
+			border:2px solid #f4f4f4;
+			
+		}
+		.ant-input-group .ant-input.ant-input-lg{
+			padding: 8px;
+			background-color: #f4f4f4;
+			border-radius: 12px 0px 0px 12px;
+			border:2px solid #f4f4f4;
+			
+			&::placeholder{
+				color: #525C76;
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 24px;
+				border-right: 0.5px solid #b1b5c4;
+			}
+		}
+		.ant-select-single.ant-select-show-arrow span.ant-select-selection-item{
+			padding-right: 0px;
+			margin-right: 20px;
+			font-size: 14px;
+			color: #525c76;
+			font-weight: bolder;
+			padding-right: 0px;
+		}
+		span.ant-select-selection-item{
+			padding-left: 8px;
+			
+			
+		}
+		span.ant-select-arrow{
+			color: #525c76;
+			margin-left: 8px;
+		}
+		.ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+			width: 100%;
+			padding-left: 0px;
+		}
+		
+		span.ant-input-group-addon{
+			border-radius: 0px 12px 12px 0px;
+		}
+		.selectbox select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-item {
+			line-height: 42px;
+			height: 40px;
+			width: 100%;
+		}
+		
+		.ant-select-multiple span.ant-select-selection-item {
+			padding: 0px 0px;
+			margin: 0px 2px 0px 0px;
+			background-color: #3772ff;
+			color: white;
+			padding: 6px 16px;
+			border-radius: 12px;
+			//width: 139px;
+			height: 40px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			font-size: 13px;
+			justify-content: space-around;
+			min-width: 30px;
+		}
+		
+		.ant-select-multiple .ant-select-selection-item-remove svg {
+			//display: none;
+			margin-left: 8px;
+		}
+		
+		
+		.ant-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search {
+			&:local(.voting-type_box) {
+				.ant-select-selector {
+					border: 2px solid #e6e8ec;
+					padding: 1px 2px;
+					border-radius: 12px;
+					height: 48px;
+				}
+				
+				.ant-select-selection-item-remove {
+					display: flex;
+				}
+			}
+		}
+	}
+}
+
+

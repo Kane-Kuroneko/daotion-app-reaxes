@@ -68,8 +68,8 @@ export const OrderInfoSearch = reaxper(() => {
 							onChange = { ([ start , end ]) => {
 								setFields({
 									range_picker_order_created_date : [
-										dayjs(start).tz('America/Sao_Paulo') ,
-										dayjs(end).tz('America/Sao_Paulo') ,
+										utils.dayjs(start).tz('America/Sao_Paulo') ,
+										utils.dayjs(end).tz('America/Sao_Paulo') ,
 									] ,
 								});
 							} }
@@ -240,21 +240,22 @@ export const OrderProcess = reaxper(() => {
 	
 	return (
 		<Modal
-			className={less.processingModal}
-			visible={reax_Collection_Order.processModalShow}
-			closable={false}
-			footer={false}>
+			className = { less.processingModal }
+			visible = { reax_Collection_Order.processModalShow }
+			closable = { false }
+			footer = { false }
+		>
 			<div className = { less.orderProcessTitle }>
 				<span>
 					订单进度
 				</span>
 				<div
-					className={less.closeBtn}
-					onClick={() => {
-						reax_Collection_Order.changeModalShow(false)
-					}}
+					className = { less.closeBtn }
+					onClick = { () => {
+						reax_Collection_Order.changeModalShow(false);
+					} }
 				>
-					<SVGOrderCloseBtn/>
+					<SVGOrderCloseBtn />
 				</div>
 			</div>
 			<Steps
@@ -270,10 +271,10 @@ export const OrderProcess = reaxper(() => {
 					title = { '已支付' }
 					description = { '2022-10-18 15:27' }
 				/>
-				{/*<Step*/}
-				{/*	title = { '支付失败' }*/}
-				{/*	description = { '2022-10-18 15:27' }*/}
-				{/*/>*/}
+				{/*<Step*/ }
+				{/*	title = { '支付失败' }*/ }
+				{/*	description = { '2022-10-18 15:27' }*/ }
+				{/*/>*/ }
 			</Steps>
 		</Modal>
 	);
@@ -288,7 +289,6 @@ import {
 import { reaxel_collection_order } from './reaxel--collection-order';
 import { DatePicker } from '@@Xcomponents';
 import { time_localize_Brazil } from '#toolkits/overseas-payment';
-import dayjs from 'dayjs';
 import {ConfigProvider} from 'antd';
 import { ColumnsType } from "antd/es/table";
 import {

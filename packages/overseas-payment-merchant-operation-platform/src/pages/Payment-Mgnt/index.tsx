@@ -108,7 +108,7 @@ export const PayoutManagement = reaxper(() => {
 					}}
 					type="primary"
 				>
-					<SVGPaymentMgntAddIcon />
+					<SVGAddBtn />
 					新增代付
 				</Button>
 			</div>
@@ -147,5 +147,5 @@ export const PayoutManagement = reaxper(() => {
 
 import { ColumnsType } from 'antd/lib/table';
 import less from './index.module.less';
-import { SVGPaymentMgntAddIcon } from '@@SVGcomponents';
+import { SVGAddBtn } from '@@SVGcomponents';
 import { reaxel_payment_mgnt } from './reaxel--payment-mgnt';

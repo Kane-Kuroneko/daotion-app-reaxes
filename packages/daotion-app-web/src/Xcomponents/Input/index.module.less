@@ -1,0 +1,49 @@
+@import "@@root/src/styles/variable.module.less";
+
+.daotion-input {
+  display: inline-block;
+
+  :global {
+    .ant-input.ant-input-status-error {
+      background-color: @neutrals_F;
+      border-radius: 12px;
+      border: 2px solid @primary_5;
+      box-shadow: none;
+
+      &:hover {
+        border-color: @primary_5;
+      }
+
+      &:focus {
+        border: 2px solid @primary_5;
+        background-color: @neutrals_F;
+        box-shadow: none;
+      }
+    }
+
+    .ant-input {
+      box-sizing: border-box;
+      color: @neutrals_4;
+
+      background-color: @neutrals_7;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      box-shadow: none;
+
+      &:hover {
+        border: 2px solid @neutrals_6;
+      }
+
+      &:focus {
+        border: 2px solid @neutrals_4;
+        background-color: @neutrals_F;
+        box-shadow: none;
+      }
+
+      &-affix-wrapper {
+        border-radius: 12px;
+        border: 1px solid #e6e8ec;
+      }
+    }
+  }
+}

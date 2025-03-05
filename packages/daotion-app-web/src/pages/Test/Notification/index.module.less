@@ -1,0 +1,110 @@
+//notifi:global(.ant-notification-notice){
+//	display: flex;
+//	padding: 16px;
+//	width: 822px;
+//	height: 72px;
+//
+//	background: rgba(49, 52, 54, 0.7);
+//	border-radius: 12px;
+//
+//	:global(.ant-notification-notice-close){
+//		display: none;
+//	}
+//}
+
+:global(.ant-notification-notice-close){
+	display: none;
+}
+
+:global(.ant-notification-notice.notification-container--ag_0.ant-notification-notice-closable)
+{
+	height: 72px;
+	background: rgba(49, 52, 54, 0.7);
+	border-radius: 12px;
+}
+
+:global(.ant-notification.ant-notification-bottom)
+{
+	margin: 0;
+	inset: auto auto -80% 50% !important;
+	width: 838px;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	width: 790px;
+	height: 40px;
+	
+
+}
+
+.title{
+	font-weight: 600;
+	font-size: 16px;
+	
+	color: #FFFFFF;
+	user-select: none;
+}
+
+.btn{
+	display: flex;
+	justify-content: space-between;
+	width: 256px;
+	height: 40px;
+	
+	:global{
+		.ant-btn{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 8px 16px;
+			
+			width: 120px;
+			height: 40px;
+			
+			border-radius: 8px;
+
+			font-weight: 700;
+			font-size: 13px;
+			
+			color: #FFFFFF; 
+		}
+		
+		.ant-btn-text{
+			&:hover {
+				color: #ffffff;
+				background: unset;
+			}
+			
+			&:focus{
+				color: #ffffff;
+				background: unset;
+			}
+		}
+		
+		.ant-btn-primary{
+			background: #0070F3;
+			border: unset;
+			
+			&:hover {
+				color: #ffffff;
+				background: #0070F3;
+			}
+			
+			&:focus{
+				color: #ffffff;
+				background: #0070F3;
+			}
+		}
+	}
+}
+
+
+.notification-container {
+	
+	width: 100% !important;
+	
+}

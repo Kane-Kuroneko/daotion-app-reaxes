@@ -61,6 +61,8 @@ export const LayoutBreadCrumb = reaxper(() => {
 		'deposit' : '充值',
 		'new-payment' : '新增代付',
 		'api-doc' : 'Api文档',
+		'deposit-order' : '充值订单',
+		
 	};
 	if (!(pathName === 'overview' || pathName.includes('profile'))) {
 		return (

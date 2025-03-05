@@ -2,19 +2,12 @@ export const reaxel_payment_mgnt = function(){
 	const { store , setState } = orzMobx({
 		payment_application_list : [],
 		selectedOrders: [],
-		loading: false
 	});
-	
-	const setLoading = (loading) => {
-		queueMicrotask(() => {
-			setState({
-				loading,
-			});
-		});
-	};
+	const {pendingState, setPending} = toolkits.orzPending();
+
 	
 	const fetchPaymentOrderList = async () => {
-		setLoading(true);
+		setPending(true);
 		return request_payment_mgnt_list(async function(){
 			return {
 				indexStart : 0 ,
@@ -30,7 +23,7 @@ export const reaxel_payment_mgnt = function(){
 			};
 		}).then((data) => {
 			setState({ payment_application_list : data.orderList });
-			setLoading(false);
+			setPending(false);
 		});
 	};
 	
@@ -66,7 +59,7 @@ export const reaxel_payment_mgnt = function(){
 				return store.payment_application_list;
 			},
 			get loading(){
-				return store.loading;
+				return pendingState.pending;
 			},
 			get selectedOrders(){
 				return store.selectedOrders;

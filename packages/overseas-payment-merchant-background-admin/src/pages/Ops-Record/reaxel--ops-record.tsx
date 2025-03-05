@@ -1,17 +1,9 @@
 export const reaxel_ops_record = function(){
 	const initialState = {
-		pending:false,
 		records:[],
 	};
 	const { store , setState } = orzMobx(initialState);
-	
-	const setPending = (pending) => {
-		queueMicrotask(() => {
-			setState({
-				pending
-			})
-		})
-	}
+	const { pendingState, setPending } = toolkits.orzPending();
 	
 	const [fetchOpsRecord] = Reaxes.closuredMemo(() => {
 		setPending(true);
@@ -22,7 +14,7 @@ export const reaxel_ops_record = function(){
 				firstTimestamp : 0 ,
 			};
 		}).then(({recordList}) => {
-			setState({ records : recordList , pending : false });
+			setState({ records : recordList });
 			setPending(false);
 			
 		});
@@ -32,7 +24,7 @@ export const reaxel_ops_record = function(){
 		
 		return {
 			get pending(){
-				return store.pending;
+				return pendingState.pending;
 			},
 			get records(){
 				return store.records;

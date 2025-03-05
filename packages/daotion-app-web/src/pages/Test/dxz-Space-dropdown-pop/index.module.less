@@ -1,0 +1,147 @@
+.container {
+	background: rgb(255, 255, 255);
+	box-shadow: rgb(0 0 0 / 15%) 0px 4px 20px;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+	width: 256px;
+	height: fit-content;
+}
+
+.pop-list {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	user-select: none;
+	color: #777e90;
+	
+	span {
+		margin: 0px;
+		font-weight: 600;
+		font-size: 14px;
+	}
+}
+
+
+
+.pop-list {
+	transition: color .25s ease;
+	border-radius: 8px;
+	height: 40px;
+	padding: 8px;
+	&:hover {
+		color: #222528;
+		background: #f4f5f6;
+	}
+	
+	
+}
+
+.leave-space-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-weight: 600;
+	font-size: 14px;
+	transition: color .25s ease;
+	color: #ff3b30;
+	border-radius: 8px;
+	height: 40px;
+	padding: 8px;
+	&:hover {
+		background: #ff3b30;
+		color: #ffffff;
+		svg path {
+			fill: #ffffff;
+		}
+	}
+}
+.join-space-btn{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-weight: 600;
+	font-size: 14px;
+	transition: color .25s ease;
+	color: #0070f3;
+	border-radius: 8px;
+	height: 40px;
+	padding: 8px;
+	&:hover {
+		background: #0070f3;
+		color: #ffffff;
+		svg path {
+			fill: #ffffff;
+		}
+	}
+}
+
+.pop-list:not(:last-child):hover {
+	svg path {
+		fill: #222528;
+	}
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	background: #e6e8ec;
+	margin:8px 0;
+}
+
+//:local(.pop-switch) {
+//	:global {
+//		min-width: unset;
+//		height: 20px;
+//		.ant-switch-handle {
+//			width: 12px;
+//			height: 12px;
+//			top: 4px;
+//			left: 4px;
+//		}
+//		
+//		.ant-switch-handle::before {
+//			background: #0070f3;
+//			border-radius: 32px;
+//		}
+//	}
+//}
+
+.pop-switch:global(.ant-switch) {
+	width: 40px;
+	height: 20px;
+	min-width: unset;
+	background: #e6e8ec;
+	border-radius: 32px;
+	
+	&:focus {
+		box-shadow: unset;
+	}
+	
+	&-checked {
+		background: #a5c7ee;
+		
+		:global(.ant-switch-handle) {
+			left: calc(100% - 18px);
+		}
+	}
+	
+	:global {
+		.ant-switch-handle {
+			margin-left: 2px;
+			width: 12px;
+			height: 12px;
+			border-radius: 32px;
+			top: 4px;
+			
+			&::before {
+				background: #0070f3;
+				border-radius: 32px;
+			}
+		}
+	}
+}
+
+	
+

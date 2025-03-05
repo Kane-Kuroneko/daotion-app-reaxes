@@ -3,7 +3,7 @@ export const reaxel_storage = function(){
 	return () => {
 		
 		return {
-			get<ret extends any = string>( key:string ):ret|Storage {
+			get<ret extends any = string>( key:string ):ret {
 				if ( key.length ) {
 					try {
 						return JSON.parse(window.localStorage.getItem( key ));
@@ -11,7 +11,7 @@ export const reaxel_storage = function(){
 						return window.localStorage.getItem( key ) as ret;
 					}
 				} else {
-					return window.localStorage;
+					throw `cannot find key '${ key }' in storage`;
 				}
 			},
 			

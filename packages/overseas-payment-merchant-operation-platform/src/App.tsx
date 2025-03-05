@@ -13,4 +13,4 @@ import 'antd/dist/antd.less';
 import './styles/main.module.less';
 import { Routing } from './Routing';
 import { ConfigProvider } from 'antd';
-import locale from 'antd/es/locale/pt_BR';
+import locale from 'antd/es/locale/zh_CN';

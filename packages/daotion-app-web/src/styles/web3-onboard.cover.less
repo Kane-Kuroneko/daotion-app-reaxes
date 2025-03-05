@@ -1,0 +1,141 @@
+
+section {
+	font-family: inter, sans-serif, "Microsoft YaHei UI";
+	
+	div.modal-overflow.modal-styling{
+		border-radius: 20px;
+		div.modal {
+			border-radius: unset;
+			box-shadow: 0px 64px 64px -48px rgba(31, 47, 70, 0.12);
+			>.container {
+				height: 640px;
+				
+				.sidebar {
+					display: none;
+				}
+				
+				.content {
+					width: 420px;
+					padding: 32px;
+					
+					& > .header {
+						box-shadow: unset;
+						display: flex;
+						justify-content: space-between;
+						
+						> h4.header-heading {
+							visibility: collapse;
+							margin: unset;
+							line-height: normal;
+							display: inline;
+							line-height: 0;
+							
+							&::before {
+								content: "Connect Wallet";
+								height: fit-content;
+								display: flex;
+								visibility: visible;
+								font-family: inter, sans-serif, "Microsoft YaHei UI";
+								font-weight: 700;
+								font-size: 32px;
+								line-height: 40px;
+								letter-spacing: -0.01em;
+								color: #23262f;
+							}
+						}
+						
+						> .button-container {
+							right: unset;
+							top: unset;
+							position: static;
+						}
+					}
+					
+					& > .scroll-container {
+						.outer-container {
+							padding: 0;
+							
+							> .wallets-container {
+								display: flex;
+								flex-flow: column nowrap;
+								gap: unset;
+								
+								> button {
+									margin-bottom: 12px;
+									border: 1px solid #e6e8ec;
+									border-radius: 16px;
+									padding: 16px 20px;
+									font-weight: 600;
+									font-size: 16px;
+									font-family: Inter,Consolas, sans-serif, "Microsoft YaHei UI";
+									
+									> div {
+										border: unset !important;
+										padding: unset !important;
+										width: 32px !important;
+										height: 32px !important;
+									}
+									
+									&:hover {
+										background: #e6e8ec;
+									}
+									
+									&:nth-child(1) {
+										order: -30;
+									}
+									
+									&:nth-child(4) {
+										order: -29;
+									}
+									
+									&:nth-child(7) {
+										order: -28;
+									}
+									
+									/*todo place trust-wallet here*/
+									//&:nth-child(7){
+									//	order: -27;
+									//}
+									&:nth-child(2) {
+										order: -26;
+									}
+									
+									&:nth-child(3) {
+										order: -25;
+									}
+								}
+							}
+						}
+						&>.spacer {
+							padding-top: 32px;
+						}
+						&>.container{
+							
+							&>.connecting-container {
+								&>div{
+									margin-left: -24px;
+									&>div:first-child>div:first-child{
+										visibility: hidden;
+									}
+								}
+							}
+						}
+					}
+				}
+				
+			}
+		}
+	}
+}
+onboard-v2{
+	line-break: unset;
+}
+
+
+/***
+walletconnect #2
+coinbase 
+trustwallet
+ledger
+trezor
+ */

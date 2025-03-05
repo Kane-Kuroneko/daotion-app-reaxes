@@ -1,0 +1,120 @@
+
+:global {
+	.ant-select {
+		width: 100%;
+		display: block;
+	}
+	
+	.ant-select-selector {
+		&::placeholder {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 24px;
+			color: #777e91;
+		}
+	}
+	
+	.ant-select-multiple span.ant-select-selection-item {
+		padding: 0px 0px;
+		margin: 0px 2px 0px 0px;
+		background-color: #0070f3;
+		color: white;
+		padding: 6px 16px;
+		border-radius: 12px;
+		height: 40px;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		font-size: 16px;
+		justify-content: center;
+		min-width: 30px;
+	}
+	
+	.ant-select-multiple .ant-select-selection-item-remove svg {
+		margin-left: 8px;
+	}
+	
+	.ant-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search {
+		&:local(.primary) {
+			.ant-select-selector {
+				border: 2px solid #e6e8ec;
+				padding: 1px 2px;
+				border-radius: 12px;
+				height: 48px;
+				width: 100%;
+				box-shadow: unset;
+				&:hover {
+					border-color: #777e90;
+				}
+			}
+		}
+	}
+}
+//tags样式:
+.tags-primary:global(.ant-select-show-search.ant-select:not(.ant-select-customize-input)) {
+	width:100% ;
+	:global(.ant-select-selector) {
+		background: #f4f5f6;
+		width:100% ;
+		min-height: 48px;
+		height: fit-content;
+		background: #ffffff;
+		border-radius: 12px;
+		border: unset;
+	}
+	:global(.ant-select-selector) {
+		background: #f4f5f6;
+		border: unset;
+	}
+	:global(.ant-select-selection-item){
+		display: flex;
+		align-items: center;
+		border-radius: 8px;
+	}
+}
+
+//单选框样式:
+.primary:global(.ant-select-single:not(.ant-select-customize-input)) {
+	width:100% ;
+	:global(.ant-select-selector) {
+		width:100% ;
+		height: 48px;
+		background: #ffffff;
+		border: 2px solid #e6e8ec;
+		border-radius: 12px;
+	}
+	:global(.ant-select-selection-item){
+		display: flex;
+		align-items: center;
+	}
+}
+//下拉菜单样式:
+.drop-down-menu {
+	//&{
+	//	padding: 8px;
+	//	background: #ffffff;
+	//	border: 2px solid #e6e8ec;
+	//	border-radius: 12px;
+	//}
+	//注释部分的样式没生效,写在dropdownStyle里了
+	:global(.ant-select-item-option) {
+		height: 30px;
+		background: #ffffff;
+		border-radius: 12px;
+		display: block;
+		vertical-align: middle;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 12px;
+		&:hover {
+			background: #f4f5f6;
+		}
+	}
+}
+.box {
+	display: flex;
+	flex-flow: column wrap;
+	width: 100%;
+	background: #ffffff;
+}

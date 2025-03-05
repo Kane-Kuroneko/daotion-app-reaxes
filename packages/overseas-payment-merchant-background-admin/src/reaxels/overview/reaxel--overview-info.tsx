@@ -5,29 +5,16 @@ export const reaxel_overview_info = function(){
 	* 资金明细信息
 	*/
 	const {store, setState } = orzMobx({
-		overviewInfoPending : false,
 		overviewInfo : null as any ,
-		finDetailPending : false,
 		fin_detail_list : [] as Overview__fin_detail.response['listInfo'] ,
 	})
 	
-	const setOverviewInfoPending = (pending) => {
-		queueMicrotask(() => {
-			setState({
-				overviewInfoPending: pending
-			})
-		})
-	}
-	const setFinDetailPending = (pending) => {
-		queueMicrotask(() => {
-			setState({
-				finDetailPending: pending
-			})
-		})
-	}
+	const { pendingState: overviewInfoPendingState, setPending: setOverviewInfoPending } = toolkits.orzPending();
+	const { pendingState: finDetailPendingState, setPending: setFinDetailPending } = toolkits.orzPending();
+	
 	
 	const [fetchOverviewInfo] = Reaxes.closuredMemo(async () => {
-		if(store.overviewInfoPending) return;
+		if(overviewInfoPendingState.pending) return;
 		setOverviewInfoPending(true)
 		return request_overview_info().then((res) => {
 			setState({
@@ -37,7 +24,7 @@ export const reaxel_overview_info = function(){
 		})
 	}, () => []);
 	const [fetchFinDetail] = Reaxes.closuredMemo( async () => {
-		if (store.finDetailPending) return;
+		if (finDetailPendingState.pending) return;
 		setFinDetailPending(true);
 		return request_fin_detail(async () => {
 			return {
@@ -58,20 +45,14 @@ export const reaxel_overview_info = function(){
 	 */
 	const { store: withdrawStore , setState: withdrawSetState } = orzMobx({
 		withdrawApplyMoney : '' as any ,
-		pending : false,
 		
 	});
-	const setWithdrawPending = (pending) => {
-		queueMicrotask(() => {
-			withdrawSetState({
-				pending,
-			});
-		});
-	};
+	const { pendingState: withdrawPendingState, setPending: setWithdrawPending } = toolkits.orzPending();
+	
 	const withdrawApply = async () => {
-		const { withdrawApplyMoney = '', pending} = withdrawStore;
+		const { withdrawApplyMoney = ''} = withdrawStore;
 		const {overviewInfo: {address} } = store
-		if (pending) return;
+		if (withdrawPendingState.pending) return;
 		if (withdrawApplyMoney === '') {
 			throw {
 				msg : '提现金额不能为空',
@@ -105,7 +86,6 @@ export const reaxel_overview_info = function(){
 				}
 			})
 		}
-		
 	}
 	
 	/**
@@ -114,19 +94,13 @@ export const reaxel_overview_info = function(){
 	const { store: depositStore, setState: depositSetState } = orzMobx({
 		depositMoney : '',
 		paymentAddress : '',
-		pending : false,
 	})
-	const setDepositPending = (pending) => {
-		queueMicrotask(() => {
-			depositSetState({
-				pending,
-			})
-		})
-	}
+	
+	const { pendingState: depositPendingState, setPending: setDepositPending } = toolkits.orzPending();
 	
 	const depositApply = async () => {
-		const { depositMoney, paymentAddress, pending } = depositStore
-		if (pending) return;
+		const { depositMoney, paymentAddress } = depositStore
+		if (depositPendingState.pending) return;
 		if (depositMoney === ''){
 			throw {
 				msg: '充值金额不能为空'
@@ -173,10 +147,10 @@ export const reaxel_overview_info = function(){
 				return store.overviewInfo;
 			},
 			get overviewInfoPending(){
-				return store.overviewInfoPending;
+				return overviewInfoPendingState.pending;
 			},
 			get finDetailPending(){
-				return store.finDetailPending;
+				return finDetailPendingState.pending;
 			},
 			get fin_detail_list(){
 				return store.fin_detail_list;
@@ -191,6 +165,9 @@ export const reaxel_overview_info = function(){
 			get withdrawStore(){
 				return withdrawStore;
 			} ,
+			get withdrawPending(){
+				return withdrawPendingState.pending
+			},
 			get withdrawSetState(){
 				return withdrawSetState;
 			},
@@ -201,6 +178,9 @@ export const reaxel_overview_info = function(){
 			//充值方法
 			get depositStore(){
 				return depositStore
+			},
+			get depositPending(){
+				return depositPendingState.pending
 			},
 			get depositSetState(){
 				return depositSetState;

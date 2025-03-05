@@ -1,0 +1,98 @@
+.loading-spin {
+	width: 100%;
+	background-color: #ffffff;
+	border-radius: 8px;
+	min-height: 300px;
+	text-align: center;
+	line-height: 300px;
+}
+
+.withdraw-container {
+	background: #ffffff;
+	border-radius: 8px;
+	padding: 24px;
+	
+	
+	.window-content {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		width: 465px;
+		margin: 0 auto;
+		
+		.title{
+			font-weight: 600;
+			font-size: 22px;
+			line-height: 28px;
+		}
+		
+		.deposit-title::after{
+			content: '账户实际到账余额以实时美金汇率为准';
+			display: block;
+			font-weight: 500;
+			font-size: 13px;
+			line-height: 16px;
+			color: rgba(22, 22, 26, 0.6);
+		}
+		
+		.withdraw-amount{
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			font-weight: 600;
+			
+			.max-withdraw-amount{
+				font-weight: 500;
+				font-size: 13px;
+				line-height: 16px;
+				color: rgba(22, 22, 26, 0.8);
+			}
+			
+			.withdraw-btn{
+				font-weight: 500;
+				font-size: 13px;
+				line-height: 16px;
+				color: #0070F3;
+				margin-left: 8px;
+				cursor: pointer;
+			}
+		}
+		
+		.address {
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+			gap: 8px;
+			font-size: 14px;
+			font-weight: 600;
+			
+			.collection-address{
+				display: flex;
+				align-items: center;
+				font-weight: 500;
+				font-size: 13px;
+				line-height: 16px;
+				
+				svg{
+					cursor: pointer;
+				}
+			}
+			
+			.set-btn{
+				font-weight: 500;
+				font-size: 13px;
+				line-height: 16px;
+				color: #0070F3;
+				cursor: pointer;
+			}
+		}
+		
+		
+		.btn{
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+			gap: 14px;
+		}
+	}
+}

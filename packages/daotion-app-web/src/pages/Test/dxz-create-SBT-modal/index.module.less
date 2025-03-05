@@ -1,0 +1,87 @@
+.main-title{
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 40px;
+	letter-spacing: -0.01em;
+	color: #222528;
+	margin-bottom: 32px;
+	user-select: none;
+}
+.sub-title{
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	color: #23262F;
+	margin-top: 32px;
+	user-select: none;
+}
+.SBT-template-text{
+	width: 238px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	display: inline-block;
+	height: 24px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	color: #23262F;
+	margin-left: 22px;
+	margin-right: 16px;
+	user-select: none;
+}
+.SBT-create-template{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: nowrap;
+	padding: 16px;
+	width: 384px;
+	height: 80px;
+	border: 1px solid #E6E8EC;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 8px;
+	transition: hover .25s linear;
+	&:last-child{
+		margin-bottom: 0;
+	}
+	&:hover{
+		background: #f4f5f6;
+	}
+	img{
+		user-select: none;
+	}
+}
+
+.create-SBT-modal {
+	> div {
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		max-width: 100%;
+		padding: 0;
+		
+		:global {
+			border-radius: 20px;
+			padding: 32px;
+			
+			.ant-modal-content {
+				height: 100%;
+			}
+			
+			.ant-modal-body {
+				height: calc(100% - 53px);
+				padding: 0;
+			}
+			.ant-modal-close-x {
+				width: 40px;
+				height: 40px;
+				//position: absolute;
+				margin-top: 32px;
+				margin-right: 32px;
+			}
+			
+		}
+	}
+}

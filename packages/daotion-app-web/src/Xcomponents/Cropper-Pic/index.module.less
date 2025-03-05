@@ -1,0 +1,33 @@
+.cropper-modal:global(.ant-modal) {
+	width: 600px !important;
+	box-sizing: border-box;
+	border-radius: 20px;
+	padding: 32px;
+	
+	.ant-modal-content {
+		border-radius: 20px;
+		
+	}
+}
+
+.cropper-modal:global(.ant-modal .ant-modal-content) {
+	border-radius: 20px;
+}
+
+.cropper-modal:global(.ant-modal .ant-modal-content .ant-modal-header) {
+	border-radius: 20px 20px 0 0;
+	border-bottom: none;
+	padding: 32px;
+}
+
+.cropper-modal:global(.ant-modal .ant-modal-content .ant-modal-body) {
+	padding: 32px;
+	padding-top: 0;
+}
+
+.cropper-modal .zoom-slider {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 26px auto;
+}

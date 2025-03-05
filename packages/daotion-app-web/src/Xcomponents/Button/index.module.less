@@ -1,0 +1,49 @@
+@import '@@root/src/styles/variable.module.less';
+
+.main {
+  display: inline-block;
+
+  :global {
+    .ant-btn {
+      box-sizing: border-box;
+      padding-left: 12px;
+      padding-right: 12px;
+
+      background: @primary_1;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .ant-btn.ant-btn-lg {
+      padding-left: 24px;
+      padding-right: 24px;
+      height: 48px;
+    }
+
+    .ant-btn-icon-only {
+      border-radius: 12px !important;
+    }
+
+    .ant-btn.ant-btn-lg.ant-btn-icon-only {
+      padding: 12px;
+      width: 48px;
+      height: 48px;
+    }
+
+    .ant-btn.ant-btn-ghost {
+      color: @neutrals_0;
+      background: transparent;
+      border: 2px solid @neutrals_5 !important;
+      border-radius: 12px;
+    }
+
+    .ant-btn.ant-btn-dangerous {
+      color: @primary_5;
+      background: @neutrals_F;
+      border: 2px solid @primary_5 !important;
+      border-radius: 12px;
+    }
+  }
+}

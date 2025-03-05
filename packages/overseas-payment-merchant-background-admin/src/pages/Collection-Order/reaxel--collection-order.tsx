@@ -5,10 +5,9 @@ export const reaxel_collection_order = function(){
 		input_search_orderID : "",
 		range_picker_order_created_date : [] ,
 		range_picker_order_updated_date : [] ,
-		select_order_status : 0 ,
+		select_order_status : null ,
 	};
 	const initialOrderList = {
-		pending:false,
 		/*表单数据*/
 		collection_order_list : [] as Order__collection_order.response["orderList"],
 	}
@@ -19,10 +18,8 @@ export const reaxel_collection_order = function(){
 		processModalShow : false ,
 	});
 	
-	const setPending = (pending) => {
-		// setState$orderList({ pending })
-		queueMicrotask(() => setState$orderList({ pending }));
-	};
+	const { pendingState, setPending } = toolkits.orzPending();
+	
 	const {grasp:fetchCollectionOrder} = reaxel_fact__prevent_dup_request((preventDup) => async (path) => {
 		const fetchMap = {
 			"collection-order" : request_collection_order,
@@ -70,14 +67,14 @@ export const reaxel_collection_order = function(){
 				return store$search;
 			},
 			get pending(){
-				return store$orderList.pending;
+				return pendingState.pending;
 			},
 			get collection_order_list(){
 				Reaxes.collectDeps(store$orderList);
 				if(path && path !== currentPath){
 					return [];
 				}
-				if(store$orderList.pending){
+				if(pendingState.pending){
 					return [];
 				}
 				return store$orderList.collection_order_list;

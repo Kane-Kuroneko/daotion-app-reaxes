@@ -1,7 +1,7 @@
 
 export const OverviewDeposit = reaxper(() => {
-	const {depositStore, deposit, depositSetState  } = reaxel_overview_info();
-	const { paymentAddress = '', depositMoney = ''} = depositStore;
+	const reax_overview_info = reaxel_overview_info();
+	const {depositStore : {paymentAddress = '', depositMoney = ''}, deposit, depositSetState  } = reax_overview_info;
 	const { message, Input, Button } = antd;
 	return (
 		<div className={less.depositContainer}>
@@ -39,7 +39,7 @@ export const OverviewDeposit = reaxper(() => {
 				</div>
 				<Button
 					type = "primary"
-					loading={depositStore.pending}
+					loading={reax_overview_info.depositPending}
 					onClick = { () => {
 						deposit().then(() => {
 							message.success('已提交申请');

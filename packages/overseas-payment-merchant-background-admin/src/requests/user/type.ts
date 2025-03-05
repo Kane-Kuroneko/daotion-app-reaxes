@@ -76,10 +76,10 @@ export namespace User__api_info {
 
 export namespace User__api_set {
 	export interface payload {
-		payInCallback : string;
-		payOutCallback : string;
-		payOutWhitelist : string[] ;
-		address : string;
+		payInCallback? : string;
+		payOutCallback? : string;
+		payOutWhitelist? : string[] ;
+		address? : string;
 		
 		
 	}

@@ -73,7 +73,7 @@ let count = 0;
 export const PreventDupTest = reaxper(() => {
 	
 	const { fetch , text } = reaxel_fetch();
-	
+	/*@ts-ignore*/
 	const { Button } = antd;
 	return <>
 		<Button

@@ -1,0 +1,136 @@
+@import '@@root/src/styles/variable.module.less';
+
+.edit-profile-box {
+	width: 870px;
+	border-radius: 24px;
+	padding: 32px;
+	background: #ffffff;
+	height: fit-content;
+}
+
+.Title {
+	height: 52px;
+	font-family: 'Inter', serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 56px;
+	color: #23262f;
+	margin-bottom: 16px;
+	user-select: none;
+}
+
+
+.bold-span {
+	color: black;
+}
+
+.intro {
+	height: 24px;
+	font-family: 'Inter', serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #777e91;
+	margin-bottom: 64px;
+}
+
+.main-field {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.profile-photo {
+	margin-right: 32px;
+	display: flex;
+	justify-content: flex-start;
+	
+	&-left {
+		width: 128px;
+		height: 128px;
+		border-radius: 16px;
+		background-color: #eeeeee;
+		
+		&-empty {
+			width: 128px;
+			height: 128px;
+			border-radius: 16px;
+			border: 1px solid @neutrals_5;
+		}
+	}
+	
+	&-right {
+		width: 227px;
+		margin-left: 32px;
+	}
+}
+
+.photo-title {
+	font-family: 'Inter', serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	color: #23262f;
+	margin-bottom: 8px;
+	height: 24px;
+}
+
+.avatar-rule {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 20px;
+	display: flex;
+	align-items: center;
+	color: #777e91;
+	margin-bottom: 16px;
+}
+
+
+.profile-photo {
+	width: 100%;
+	height: 100%;
+	border-radius: 16px;
+	object-fit: cover;
+	object-position: 50% 50%;
+	user-select: none;
+}
+
+.edit-input {
+	&::placeholder {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 24px;
+		letter-spacing: -0.01em;
+		color: #777e91;
+	}
+}
+
+.account-title_2 {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	color: #23262f;
+	margin: 32px 0 2px 0;
+}
+
+.last-intro {
+	font-family: 'Inter', serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+	color: #777e91;
+	margin-top: 32px;
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	background: #e6e8ec;
+	margin: 32px 0;
+}

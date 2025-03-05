@@ -1,0 +1,464 @@
+@import "@@root/src/styles/variable.module.less";
+
+.font-mixin {
+  font-size: @font_3;
+  font-weight: @weight_2;
+  color: @white_1;
+}
+
+.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 64px;
+  padding: 12px 32px;
+
+  background-color: transparent;
+  transition: background-color 0.25s;
+
+  .font-mixin();
+
+  @media screen and (max-width: 799px) {
+    padding: 12px 24px;
+  }
+
+  &-on {
+    @media screen and (max-width: 799px) {
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+      height: 100vh;
+      padding: 12px 24px;
+      background-color: rgba(0, 0, 0, 0.7) !important;
+      -webkit-backdrop-filter: saturate(1.8) blur(20px) !important;
+      backdrop-filter: saturate(1.8) blur(20px) !important;
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    height: 100%;
+
+    @media screen and (max-width: 799px) {
+      display: none;
+    }
+
+    &-select {
+      display: flex;
+      align-items: center;
+      margin-right: 64px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-select-mobile {
+      position: absolute;
+      top: 22px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      margin-right: 64px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-back {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+
+      width: 170px;
+      height: 40px;
+      padding: 12px 32px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      color: rgba(255, 255, 255, 0.8);
+
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+
+      background: #222;
+      border-radius: 8px;
+    }
+  }
+
+  &-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 799px) {
+      position: absolute;
+      top: 20px;
+      left: 24px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-logo {
+      display: inline-block;
+      width: 225px;
+      height: 30px;
+
+      background-image: url("@@public/svg/logoPaper.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: transform 0.3s ease-in-out 0s;
+      transform: translate3d(0, 0, 0);
+
+      &-animate {
+        transform: translate3d(50px, 0, 0);
+      }
+    }
+
+    &-logo2 {
+      display: inline-block;
+      width: 166px;
+      height: 24px;
+
+      background-image: url("@@public/svg/logoPaper2.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: transform 0.3s ease-in-out 0s;
+      transform: translate3d(0, 0, 0);
+
+      &-animate {
+        transform: translate3d(50px, 0, 0);
+      }
+    }
+
+    &-title {
+      width: 90px;
+      height: 20px;
+      margin-left: 10px;
+
+      background-image: url("@@public/svg/logo2.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+
+      opacity: 1;
+      transition: transform 0.3s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
+      transform: translate3d(0, 0, 0);
+
+      &-animate {
+        opacity: 0;
+        transform: translate3d(-35px, 0, 0);
+      }
+    }
+
+    &-paper {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 24px;
+      color: #fff;
+    }
+  }
+
+  &-lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 67px;
+    height: 40px;
+    padding: 0 24px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff;
+    text-align: center;
+
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid #222;
+    border-radius: 29px;
+    gap: 10px;
+
+    transition: background-color 0.25s;
+
+    &:hover {
+      background-color: #222;
+    }
+  }
+
+  &-lang2 {
+    position: absolute;
+    top: 18px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 51px;
+    height: 30px;
+    padding: 0 24px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff;
+    text-align: center;
+
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid #222;
+    border-radius: 29px;
+    gap: 10px;
+
+    transition: background-color 0.25s;
+
+    &:hover {
+      background-color: #222;
+    }
+  }
+
+  &-menu {
+    display: none;
+    padding: 12px;
+
+    cursor: pointer;
+    background: transparent;
+    border: none;
+
+    &-wrap {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    @media screen and (max-width: 799px) {
+      top: 24px;
+      display: block;
+      transform: translate(0, 0);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::after,
+    &::before,
+    span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      border-radius: 100px;
+      transition: all 0.3s;
+      transform: rotate(0deg);
+    }
+
+    &::after,
+    &::before {
+      content: "";
+    }
+
+    &::after {
+      top: 0;
+      margin-top: 2px;
+    }
+
+    &::before {
+      bottom: 4px;
+      margin-bottom: 0;
+    }
+
+    span {
+      top: 50%;
+      margin-top: -2px;
+    }
+
+    &-on {
+      &::after {
+        opacity: 0;
+        transform: rotate(130deg) translate(5px, -4px);
+      }
+
+      &::before {
+        bottom: 50%;
+        margin-bottom: 0;
+        transform: rotate(225deg);
+      }
+
+      span {
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  &-media {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+
+    display: none;
+    justify-content: space-around;
+    gap: 60px;
+
+    margin-top: 32px;
+
+    &-on {
+      @media screen and (max-width: 799px) {
+        display: flex;
+      }
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+
+      transition: color 0.25s;
+
+      &:hover {
+        color: #24fec1;
+        cursor: pointer;
+      }
+
+      & > span:first-child {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px;
+      }
+
+      &-twitter {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/twitter.svg");
+      }
+
+      &-github {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/github.svg");
+      }
+
+      &-discord {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/discord.svg");
+      }
+
+
+      &-title {
+        padding: 12px 0;
+        margin-left: 16px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 140px;
+  padding: 12px;
+  color: #fff;
+  background: rgba(44, 53, 61, 0.9);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-radius: 8px;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 400;
+
+  &-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &-twitter {
+      width: 24px;
+      height: 20px;
+      background-image: url("@@public/svg/twitter.svg");
+    }
+
+    &-github {
+      width: 24px;
+      height: 20px;
+      background-image: url("@@public/svg/github.svg");
+    }
+
+    &-discord {
+      width: 24px;
+      height: 20px;
+      background-image: url("@@public/svg/discord.svg");
+    }
+  }
+
+  &-title {
+    padding: 12px 0;
+    margin-left: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+
+    &:hover {
+      color: #24fec1;
+      cursor: pointer;
+    }
+  }
+}

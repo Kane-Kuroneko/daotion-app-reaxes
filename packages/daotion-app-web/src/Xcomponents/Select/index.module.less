@@ -1,0 +1,51 @@
+@import "@@root/src/styles/variable.module.less";
+
+.main {
+  :global {
+    .ant-select-selector {
+      box-sizing: border-box !important;
+      border-radius: 12px !important;
+      box-shadow: none !important;
+      background-color: @neutrals_F !important;
+      border: 1px solid #efefef !important;
+    }
+
+    .ant-select.ant-select-focused .ant-select-selector {
+      border: 2px solid @neutrals_5 !important;
+    }
+
+    .ant-select-selection-item {
+      box-sizing: border-box !important;
+      border-radius: 8px !important;
+    }
+  }
+}
+
+:global {
+  body {
+    .daotion-dropdown {
+      .ant-select-dropdown {
+        padding: 4px;
+        border: 2px solid #E6E8EC;
+        border-radius: 12px;
+      }
+
+      .ant-select-item-option {
+        border-radius: 12px !important;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+        color: @primary_1;
+        background-color: @neutrals_F;
+        font-weight: 600;
+        font-size: 14px;
+
+        &:hover {
+          background-color: @neutrals_7;
+        }
+      }
+    }
+  }
+}

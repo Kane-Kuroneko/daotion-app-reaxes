@@ -4,6 +4,11 @@
 	}
 }
 
+
+p{
+	margin: 0;
+}
+
 .overview-container{
 	display: flex;
 	flex-direction: column;
@@ -25,62 +30,32 @@
 		}
 	}
 	
+	.overview-sub-title{
+		font-size: 14px;
+		line-height: 1.4;
+		color: rgba(22, 22, 26, 0.6);
+	}
 	
-	.overview-title{
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 24px;
+	.withdrawing-amount{
+		font-size: 28px;
+		line-height: 140%;
 		color: #16161A;
 	}
 	
-	.overview-content{
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-		
-		.overview-sub-title{
-			font-weight: 500;
-			font-size: 14px;
-			line-height: 1.4;
-			color: rgba(22, 22, 26, 0.6);
-		}
-		
-		.balance-container{
-			display: flex;
-			align-items: flex-end;
-			gap: 24px;
-			
-			.balance-content{
-				display: flex;
-				flex-direction: column;
-				
-				.balance-amount{
-					font-weight: 500;
-					font-size: 48px;
-					line-height: 61px;
-					color: #16161A;
-				}
-				
-			}
-			
-			.check-detail{
-				font-weight: 500;
-				color: #1677FF;
-			}
-		}
 
-		.withdraw-content{
-			display: flex;
-			flex-direction: column;
-			
-			.withdrawing-amount{
-				font-weight: 500;
-				font-size: 28px;
-				line-height: 140%;
-				color: #16161A;
-			}
-		}
-		
+	
+	.balance-amount{
+		font-size: 48px;
+		line-height: 61px;
+		color: #16161A;
+		margin-right: 24px;
+	}
+	
+	
+	.overview-title{
+		font-size: 18px;
+		line-height: 24px;
+		color: #16161A;
 	}
 }
 

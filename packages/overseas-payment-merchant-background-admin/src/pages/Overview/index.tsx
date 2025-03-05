@@ -29,34 +29,19 @@ export const OverviewInfo = reaxper(() => {
 			<span className = { less.overviewTitle }>
 				资金总览
 			</span>
-			<div className = { less.overviewContent }>
-				<div className = { less.balanceContainer }>
-					<div className = { less.balanceContent }>
-						<span className = { less.overviewSubTitle }>
-							账户余额（R$）
-						</span>
-						<span className = { less.balanceAmount }>
-							{ balance }
-						</span>
-					</div>
-					<Button
-						className = { less.checkDetail }
-						type = "link"
-						onClick = { () => {
-							navigate('fin-detail');
-						} }
-					>
-						查看明细
-					</Button>
-				</div>
-				<div className = { less.withdrawContent }>
-					<span className = { less.overviewSubTitle }>
-						提现处理中
-					</span>
-					<span className = { less.withdrawingAmount }>
-						{ withdrawingMoney }
-					</span>
-				</div>
+			<div>
+				<p className={less.overviewSubTitle}>账户余额（R$)</p>
+				<span className = { less.balanceAmount }>{ balance }</span>
+				<Button
+					type="link"
+					onClick={() => {
+						navigate('fin-detail')
+					}}
+				>查看明细</Button>
+			</div>
+			<div>
+				<p className={less.overviewSubTitle}>提现处理中</p>
+				<p className = { less.withdrawingAmount }>{ withdrawingMoney }</p>
 			</div>
 			<div style = { { display : 'flex' , gap : '16px' } }>
 				<Button

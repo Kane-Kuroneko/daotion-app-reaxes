@@ -88,7 +88,8 @@ export const ProfileApi = reaxper(() => {
 
 const SetApiModal = reaxper(() => {
 	const { Modal , Input , Button } = antd;
-	const { setApiConfig, setApiStore, setStateApi } = reaxel_edit_info();
+	const reax_edit_info = reaxel_edit_info();
+	const { setApiConfig , setApiStore , setStateApi } = reax_edit_info;
 	const { fetchApiConfig } = reaxel_user_info();
 	const { message } = antd;
 	const {
@@ -148,14 +149,17 @@ const SetApiModal = reaxper(() => {
 				<div className = { less.btnSection }>
 					<Button
 						type = "primary"
-						loading={setApiStore.pending}
+						loading={reax_edit_info.pending}
 						onClick = { () => {
 							setApiConfig().then((res) => {
+								console.log(res);
 								setStateApi({
 									apiSetModalShow : false ,
 								});
 								message.success('修改成功');
 								fetchApiConfig();
+							}).catch((e) => {
+								message.error(e.msg);
 							});
 							
 						} }

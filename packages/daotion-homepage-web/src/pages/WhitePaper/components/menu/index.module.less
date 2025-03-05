@@ -1,0 +1,86 @@
+.wrapper {
+  position: sticky;
+  top: 130px;
+  display: inline-block;
+  height: 100%;
+
+  @media screen and (max-width: 799px) {
+    position: initial;
+    display: block;
+    height: auto;
+    margin-top: 94px;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &-category {
+    height: 24px;
+
+    font-size: 1rem;
+    line-height: 150%;
+    color: #fff;
+
+    text-align: left;
+  }
+
+  &-body {
+    position: relative;
+    display: flex;
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid rgba(255, 255, 255, 0.8);
+
+      @media screen and (max-width: 799px) {
+        border-left: none;
+      }
+
+      &-each {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 300px;
+        padding: 8px 0 8px 20px;
+        margin: 0 !important;
+
+        font-size: 0.875rem;
+        line-height: 150%;
+
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-decoration: none;
+        cursor: pointer;
+
+        @media screen and (max-width: 1079px) {
+          width: 200px;
+        }
+
+        @media screen and (max-width: 799px) {
+          width: 100%;
+        }
+
+        &:hover {
+          color: #fff !important;
+        }
+
+        &-on {
+          position: relative;
+          color: #fff !important;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 1px;
+            height: 100%;
+            content: "";
+            background-color: #34c759;
+          }
+        }
+      }
+    }
+  }
+}

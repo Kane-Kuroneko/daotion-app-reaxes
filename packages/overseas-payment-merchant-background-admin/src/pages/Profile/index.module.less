@@ -1,85 +1,70 @@
 @media screen and (min-width: 900px) {
-	.reset-password-container{
-		:global{
-			.ant-input{
+	.reset-password-container {
+		:global {
+			.ant-input {
 				width: 464px;
 			}
 		}
 	}
 }
 
-.profile{
+.profile {
 	display: flex;
 	width: 100%;
 	padding: 24px 24px 24px 0;
-	background: #FFFF;
+	background: #ffff;
 	border-radius: 8px;
-}
-
-
-.profile-content{
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	margin-left: 24px;
-}
-
-.reset-password-container{
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
 	
-	:global{
-		.ant-input{
+	.profile-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin-left: 24px;
+	}
+}
+
+
+.reset-password-container {
+	display: flex;
+	flex-direction: column;
+	
+	.title {
+		font-size: 18px;
+		line-height: 24px;
+		margin-bottom: 4px;
+	}
+	
+	.hint {
+		font-size: 13px;
+		line-height: 16px;
+		color: rgba(22, 22, 26, 0.6);
+	}
+	
+	.form-title {
+		font-size: 14px;
+		line-height: 22px;
+		margin-bottom: 8px;
+		margin-top: 24px;
+	}
+	
+	:global {
+		.ant-input {
 			height: 48px;
 			background: rgba(22, 22, 26, 0.04);
 			border-radius: 16px;
 			border: unset;
 		}
 		
-		.ant-btn{
+		.ant-btn {
 			width: 96px;
 			height: 40px;
-			background: #0070F3;
+			background: #0070f3;
 			border-radius: 12px;
+			margin-top: 24px;
 		}
 	}
 }
 
-.reset-title{
-	display: flex;
-	flex-direction: column;
-	font-weight: 400;
-	font-size: 13px;
-	line-height: 16px;
-	color: rgba(22, 22, 26, 0.6);
-}
-
-.title{
-	font-size: 18px;
-	line-height: 24px;
-	color: #000;
-	margin-bottom: 4px;
-}
-
-.hint{
-	font-weight: 400;
-	font-size: 13px;
-	line-height: 16px;
-	color: rgba(22, 22, 26, 0.6);
-}
-
-.form-container{
-	display: flex;
-	flex-direction: column;
-}
-
-.form-title{
-	font-size: 14px;
-	line-height: 22px;
-	color: #16161a;
-	margin-bottom: 8px;
-}
 
 .spinWrapper {
 	:global {
@@ -95,10 +80,6 @@
 		display: flex;
 		margin: 24px 0;
 		align-items: center;
-	
-		p {
-			margin: 0;
-		}
 		
 		.declare {
 			font-size: 12px;
@@ -111,7 +92,7 @@
 			font-size: 14px;
 		}
 		
-		svg{
+		svg {
 			margin-left: 4px;
 			cursor: pointer;
 		}
@@ -124,7 +105,7 @@
 		}
 	}
 	
-	.base-info-title{
+	.base-info-title {
 		font-size: 18px;
 		line-height: 24px;
 		color: #000000;
@@ -133,12 +114,12 @@
 	
 }
 
-.set-api-modal:global(.ant-modal .ant-modal-content){
+.set-api-modal:global(.ant-modal .ant-modal-content) {
 	padding: 32px;
 	border-radius: 20px;
 }
 
-.set-api-modal:global(.ant-modal .ant-modal-header){
+.set-api-modal:global(.ant-modal .ant-modal-header) {
 	border-bottom: 0;
 	padding: 0;
 	padding-bottom: 16px;
@@ -148,35 +129,35 @@
 	color: #222528;
 }
 
-.set-api-modal:global(.ant-modal .ant-modal-body){
+.set-api-modal:global(.ant-modal .ant-modal-body) {
 	padding: 0;
 }
 
-.setApiModalContainer{
+.setApiModalContainer {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 	
-	.input-form{
+	.input-form {
 		display: flex;
 		flex-direction: column;
 		
-		.desc{
+		.desc {
 			font-weight: 500;
 			font-size: 13px;
 			line-height: 16px;
 			color: rgba(22, 22, 26, 0.8);
 		}
 		
-		:global{
-			.ant-input{
+		:global {
+			.ant-input {
 				margin-bottom: 8px;
 				margin-top: 8px;
 			}
 		}
 	}
 	
-	.btn-section{
+	.btn-section {
 		display: flex;
 		flex-direction: column;
 		gap: 14px;

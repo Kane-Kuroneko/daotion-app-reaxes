@@ -1,0 +1,404 @@
+@keyframes textShine {
+  to {
+    background-position: 200%;
+  }
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+
+  @media screen and (max-width: 799px) {
+    flex-direction: column;
+    padding: 0 24px;
+  }
+
+  &-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 64px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-logo {
+      display: inline-block;
+      width: 33px;
+      height: 30px;
+
+      background-image: url("@@public/svg/logo.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &-title {
+      width: 90px;
+      height: 20px;
+      margin-left: 10px;
+      font-size: 24px;
+
+      background-image: url("@@public/svg/logo2.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+
+  &-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-title {
+      margin-bottom: 40px;
+
+      font-size: 96px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 116px;
+
+      background: linear-gradient(270deg, #24fec1 0%, #ff59e2 25%, #52ddf6 50%, #a8ff35 76.04%, #24fec1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: textShine 7s ease-in-out infinite;
+
+      @media screen and (max-width: 799px) {
+        margin-bottom: 24px;
+        font-size: 4rem;
+        line-height: 120%;
+        text-align: center;
+      }
+
+      &-wrap {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-desc {
+      width: 670px;
+      margin-bottom: 80px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+      color: #fff;
+      text-align: center;
+
+      @media screen and (max-width: 799px) {
+        width: 100%;
+        margin-bottom: 40px;
+        font-size: 1.125rem;
+        line-height: 120%;
+      }
+    }
+
+    &-input {
+      position: relative;
+
+      @media screen and (max-width: 799px) {
+        width: 100%;
+      }
+
+      &-tip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-success {
+          position: absolute;
+          top: -32px;
+          right: 0;
+          color: #24fec1;
+        }
+
+        &-error {
+          position: absolute;
+          top: -32px;
+          right: 0;
+          color: #f21361;
+        }
+      }
+
+      span {
+        position: absolute;
+        right: 32px;
+        bottom: 23px;
+        display: block;
+        color: #fff;
+        word-break: keep-all;
+        transition: color 0.25s;
+
+        @media screen and (max-width: 799px) {
+          right: 16px;
+          bottom: 13px;
+        }
+      }
+
+      &:hover span {
+        color: #24fec1;
+        cursor: pointer;
+      }
+
+      input {
+        width: 446px;
+        height: 67px;
+        padding: 8px 32px;
+
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: #6a7986;
+        background: #1d1d1f;
+        border: none;
+        border-radius: 16px;
+        outline: none;
+
+        @media screen and (max-width: 799px) {
+          width: 100%;
+          height: 48px;
+          padding: 12px 16px;
+          font-size: 1rem;
+        }
+      }
+
+    }
+
+    &-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      height: 40px;
+      margin-top: 32px;
+
+      @media screen and (max-width: 799px) {
+        justify-content: space-between;
+        gap: 30px;
+      }
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+
+      transition: color 0.25s;
+
+      &:hover {
+        color: #24fec1;
+        cursor: pointer;
+      }
+
+      & > span:first-child {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px;
+      }
+
+      &-twitter {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/twitter.svg");
+      }
+
+      &-github {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/github.svg");
+      }
+
+      &-discord {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/discord.svg");
+      }
+
+      &-title {
+        padding: 12px 0;
+        margin-left: 16px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    width: 100%;
+    height: 120px;
+    padding: 40px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: #fff;
+
+    transition: color 0.25s;
+
+    @media screen and (max-width: 799px) {
+      position: initial;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+    }
+
+    &-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 64px;
+      width: 275px;
+
+      & a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          color: #24fec1;
+        }
+      }
+    }
+
+    &-contact {
+      width: 234px;
+      height: 27px;
+      font-size: 18px;
+      line-height: 150%;
+      color: #fff;
+      text-align: center;
+
+      text-decoration: none;
+      transition: all 0.25s;
+
+      &:hover {
+        color: #24fec1;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 799px) {
+        margin-top: 28px;
+      }
+    }
+  }
+
+  &-media {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+
+    justify-content: space-around;
+    gap: 60px;
+
+    margin-top: 32px;
+
+    @media screen and (max-width: 799px) {
+      position: initial;
+      display: flex;
+      gap: 96px;
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+
+      transition: color 0.25s;
+
+      &:hover {
+        color: #24fec1;
+        cursor: pointer;
+      }
+
+      & > span:first-child {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px;
+      }
+
+      &-twitter {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/twitter.svg");
+      }
+
+      &-github {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/github.svg");
+      }
+
+      &-discord {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+
+        background-image: url("@@public/svg/discord.svg");
+      }
+
+
+      &-title {
+        padding: 12px 0;
+        margin-left: 16px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

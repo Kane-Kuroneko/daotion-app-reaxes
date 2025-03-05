@@ -1,0 +1,108 @@
+@import "../../../styles/variable.module.less";
+
+// modal-content
+.antd-create-space-modal {
+	background-color: white;
+	
+	height : fit-content ;
+	borderRadius : 32px;
+	
+	:global {
+		.ant-modal-content {
+			border-radius: 32px;
+			padding: 32px;
+		}
+		
+		
+	}
+}
+.modal-content {
+	.main-title {
+		font-size: @font_1;
+		color: @black_1;
+		margin-bottom: 24px;
+	}
+	
+	.dec-title {
+		font-size: @font_2;
+		color: @black_2;
+		padding-bottom: 24px;
+		border-bottom: 1px solid @grey_1;
+		margin-bottom: 32px;
+	}
+	
+	.sub-title {
+		font-size: @font_4;
+		color: @black_3;
+		margin-bottom: 26px;
+	}
+	
+	.form-list {
+		.form-item {
+			margin-bottom: 26px;
+			
+			p {
+				font-size: @font_3;
+				color: @black_3;
+				margin-bottom: 14px;
+				font-weight: 600;
+			}
+			
+			.m-input {
+				width: 100%;
+				height: 48px;
+				border-radius: 12px;
+				font-size: @font_3;
+				background-color: @grey_2;
+				border: none;
+				color: #444444;
+				font-size: 14px;
+				
+			}
+			
+			.m-select {
+				width: 100%;
+				height: 48px;
+				
+				:global {
+					.ant-select-selector {
+						height: 48px;
+						background-color: rgb(252, 252, 252);
+						border: 1px solid #efefef;
+						border-radius: 12px;
+					}
+					
+					.ant-select-selection-item {
+						display: flex;
+						align-items: center;
+						
+					}
+				}
+			}
+			
+			.title-wrp {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				margin-bottom: 14px;
+				
+				p {
+					margin-right: 5px;
+					margin-bottom: 0;
+				}
+				
+				span.tip {
+					color: @white_2;
+					font-size: @font_5;
+					padding: 2px 8px;
+					background: #272b30;
+					border: 1px solid rgba(255, 255, 255, 0.12);
+					box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), inset 0px 0px 1px #000000;
+					border-radius: 4px;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}

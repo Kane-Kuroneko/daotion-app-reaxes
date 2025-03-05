@@ -1,4 +1,4 @@
-export const SVGHeaderDepayLogo = reaxper(() => {
+export const SVGHeaderRainpayLogo = reaxper(() => {
 	return(
 		<svg width="133" height="32" viewBox="0 0 133 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<mask id="path-2-outside-1_705_7978" maskUnits="userSpaceOnUse" x="1.88013" y="2.74701" width="13" height="12" fill="black">

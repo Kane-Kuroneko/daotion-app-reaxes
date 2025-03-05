@@ -53,7 +53,6 @@ export namespace Overview__fin_detail {
 export namespace Overview__withdraw {
 	export type payload = {
 		money : number,
-		address: string,
 	}
 	
 	export type response = {
@@ -61,13 +60,3 @@ export namespace Overview__withdraw {
 	}
 }
 
-export namespace Overview__deposit {
-	export type payload = {
-		usdt : number,
-		sourceAddress: string,
-	}
-	
-	export type response = {
-		result: number
-	}
-}

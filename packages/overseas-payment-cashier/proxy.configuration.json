@@ -15,7 +15,7 @@
 		"proxy_path_dev" : "/server_dev" ,
 		"comment__proxy_path_dev" : "开发环境的devServer前缀" ,
 		"proxy_path_server" : "/server" ,
-		"server_host" : "http://121.199.23.234:8000" ,
+		"server_host" : "http://121.199.23.234:5000" ,
 		"path_rewrite" : {
 			"^/server_dev" : ""
 		} ,

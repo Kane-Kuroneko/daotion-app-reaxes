@@ -1,0 +1,68 @@
+
+
+.xcom-btn:global(.ant-btn.ant-btn) {
+	&-link{
+		color : red;
+	}
+	&-ghost{
+		color : blue;
+		border-radius: 16px;
+		background: #f4f5f6;
+		border: 2px solid #f21361;
+	}
+	
+}
+
+/*primary*/
+:global{
+	.ant-btn.ant-btn-primary {
+		transition: unset;
+		box-shadow: unset;
+		&:local(.joined){
+			color: #777e90;
+			background-color: #f4f5f6;
+			padding: 12px 20px;
+			width: 140px;
+			height: 48px;
+			border: none;
+			border-radius: 12px;
+			font-size: 16px;
+			font-weight: 700;
+			box-shadow: none;
+			text-shadow: none;
+		}
+		&:local(.leave){
+			padding: 12px 20px;
+			width: 140px;
+			height: 48px;
+			background: #FFE6EA;
+			border: 1px solid #F21361;
+			border-radius: 12px;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 24px;
+			color: #F21361;
+			box-shadow: none;
+			text-shadow: none;
+		}
+		&:local(.primary){
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: 12px 20px;
+			width: fit-content;
+			height: 48px;
+			background: #0070f3;
+			border-radius: 12px;
+			border: unset;
+			font-weight: 700;
+			font-size: 16px;
+			&:hover{
+				background:#2a85ff;
+			}
+		}
+	}
+	
+}
+

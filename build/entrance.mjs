@@ -16,10 +16,10 @@ export let {
 	method = "server" ,
 	env = "unset",
 	node_env = "development",
-	experimental = null ,
+	experimental = "non-exp" ,
 } = overload(args , [
 	{
-		regExp : /\bdaotion-app-web|daotion-demo-web|daotion-honmepage-web|overseas-payment-cashier|overseas-payment-merchant-background-admin|overseas-payment-merchant-operation-platform\b/ ,
+		regExp : /\bdaotion-app-web|daotion-demo-web|daotion-homepage-web|overseas-payment-cashier|overseas-payment-merchant-background-admin|overseas-payment-merchant-operation-platform|tester-based-react\b/ ,
 		key : "repo" ,
 	} ,
 	{
@@ -31,6 +31,7 @@ export let {
 		key : "analyze" ,
 	} ,
 	{
+		/*启动模式,构建还是本地服务*/
 		regExp : /\bbuild|server\b/ ,
 		key : "method" ,
 	} ,
@@ -40,7 +41,7 @@ export let {
 		key : "env" ,
 	} ,
 	{
-		/*网络请求环境*/
+		/*webpack的mode*/
 		regExp : /\bdevelopment|production\b/ ,
 		key : "node_env" ,
 	} ,
@@ -55,18 +56,14 @@ export let {
 if ( !node_env ) {
 	if(method === "server"){
 		node_env = 'development';
-	}else {
+	}else if (method === "build") {
 		node_env = 'production';
+	}else {
+		node_env = 'development';
 	}
 }else if(node_env === "production"){
 	
 }
-/*如果是dev环境则默认开启实验特性,除非明确说明*/
-if ( !experimental ) {
-	// node_env === 'development' ? experimental = 'experimental' : experimental = 'non-exp';
-	experimental = 'non-exp';
-}
-
 export const rootPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../');
 
 export const repoRoot = path.resolve(rootPath , `packages/${ repo }`);
@@ -77,10 +74,11 @@ export const packagesRoot = path.resolve(rootPath , `packages`);
 export const repoPackages = [
 	"daotion-app-web" ,
 	"daotion-demo-web" ,
-	"daotion-honmepage-web" ,
+	"daotion-homepage-web" ,
 	"overseas-payment-cashier" ,
 	"overseas-payment-merchant-background-admin" ,
 	"overseas-payment-merchant-operation-platform" ,
+	"tester-based-react" ,
 ];
 /*非业务模块不可被打包,因为webpack.base.config.mjs里配置了对通用模块的alias,*/
 if(repoPackages.every((repoName) => repoName !== repo )){

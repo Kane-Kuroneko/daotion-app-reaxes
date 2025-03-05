@@ -6,23 +6,27 @@ export const reaxel_overview_order_info = function(){
 * 首页各个类型订单统计信息
 */
 	const { store: collectionOrder$store, setState: collectionOrder$setState } = orzMobx({
-		info : {} as any,
+		info : null as any,
 		duration : 0,
+		loading : false,
 	})
 	
 	const { store: payoutOrder$store, setState: payoutOrder$setState } = orzMobx({
-		info : {} as any,
+		info : null as any,
 		duration : 0,
+		loading : false,
 	})
 	
 	const { store: withdrawalOrder$store, setState: withdrawalOrder$setState } = orzMobx({
-		info : {} as any,
+		info : null as any,
 		duration : 0,
+		loading : false,
 	})
 	
 	const { store: depositOrder$store, setState: depositOrder$setState } = orzMobx({
-		info : {} as any,
+		info : null as any,
 		duration : 0,
+		loading : false,
 	})
 	
 	const [fetchOrderCountClosure ] = Reaxes.closuredMemo(async (pageType, duration) => {
@@ -73,30 +77,58 @@ export const reaxel_overview_order_info = function(){
 				return enum_overview_duration_type
 			},
 			fetchCollectionOrderClosure(pageType ){
+				collectionOrder$setState({
+					loading: true
+				})
 				return fetchOrderCountClosure(() => [pageType, collectionOrder$store.duration])(pageType, collectionOrder$store.duration).then((res) => {
 					collectionOrder$setState({
 						info: res.countInfo
 					})
-				});
-			} ,
-			fetchPayoutOrderClosure(pageType ){
-				return fetchOrderCountClosure(() => [pageType, payoutOrder$store.duration])(pageType, payoutOrder$store.duration).then(res => {
-					payoutOrder$setState({
-						info: res.countInfo
+				}).then(() => {
+					collectionOrder$setState({
+						loading: false
 					})
 				});
 			} ,
+			fetchPayoutOrderClosure(pageType ){
+				payoutOrder$setState({
+					loading : true,
+				})
+				return fetchOrderCountClosure(() => [ pageType , payoutOrder$store.duration ])(pageType , payoutOrder$store.duration).then(res => {
+					payoutOrder$setState({
+						info : res.countInfo,
+					});
+				}).then(() => {
+					payoutOrder$setState({
+						loading : false ,
+					});
+				});
+			} ,
 			fetchWithdrawalClosure(pageType){
+				withdrawalOrder$setState({
+					loading: true
+				})
 				return fetchOrderCountClosure(() => [pageType,withdrawalOrder$store.duration])(pageType, withdrawalOrder$store.duration).then(res => {
 					withdrawalOrder$setState({
 						info: res.countInfo
 					})
+				}).then(() => {
+					withdrawalOrder$setState({
+						loading: false
+					})
 				});
 			} ,
 			fetchDepositOrderClosure( pageType){
+				depositOrder$setState({
+					loading: true
+				})
 				return fetchOrderCountClosure(() => [pageType, depositOrder$store.duration])(pageType, depositOrder$store.duration).then(res => {
 					depositOrder$setState({
 						info: res.countInfo
+					})
+				}).then(() => {
+					depositOrder$setState({
+						loading: false
 					})
 				}) ;
 			} ,

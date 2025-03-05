@@ -1,0 +1,188 @@
+//global CSS here
+
+:global {
+	html, body, #react-app-root {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		font-family: inter, sans-serif, "Microsoft YaHei UI"
+	}
+	
+	* {
+		font-family: inter, sans-serif, "Microsoft YaHei UI"
+	}
+	
+	//todo
+	#react-app-root {
+		
+		.ant-dropdown {
+			
+		}
+		
+		.ant-dropdown-menu {
+			border-radius: 12px;
+			padding: 0;
+			transform: rotate(0deg);
+			overflow-x: hidden;
+			box-shadow: 0 17px 62px 0px rgb(0 0 0 / 18%),
+			0 11px 29px 0 rgb(0 0 0 / 8%),
+			0 9px 18px 0px rgb(0 0 0 / 5%);
+			//box-shadow: 0px 16px 64px -48px rgba(31, 47, 70, 0.4);
+		}
+		
+		.ant-dropdown-menu-item {
+			//border-radius: 12px;
+			
+		}
+		
+		
+		
+		input.ant-input {
+			line-height: normal;
+			
+		}
+		
+		.ant-segmented-item-label {
+			user-select: none;
+		}
+		
+		//.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+		//	//border-radius: 12px;
+		//	//border: 1px solid #e6e8ec;
+		//	//height: 40px;
+		//	
+		//	.ant-select-selection-search {
+		//		height: 100%;
+		//		display: flex;
+		//		align-items: center;
+		//		
+		//	}
+		//	
+		//	.ant-select-selection-item{
+		//		height: 100%;
+		//		display: flex;
+		//		align-items: center;
+		//		line-height: normal;
+		//	}
+		//}
+	}
+	
+}
+
+.Home-Root {
+	display: flex;
+	height: 100%;
+	overflow: auto;
+	background: rgba(244, 244, 244, 0.8);
+	.left-side {
+		height: 100%;
+		display: flex;
+		padding: 8px 0 8px 4px;
+	}
+	
+	.main-content {
+		flex: 1 0 auto;
+		flex-flow: column nowrap;
+		width: min-content;
+		
+		> .top-banner {
+			background-color: transparent;
+			height: 80px;
+			flex-grow: 0;
+			width: 100%;
+			padding: 16px 32px;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+			
+			> .right-side-group {
+				flex-shrink: 0;
+				height: 100%;
+				align-items: center;
+				float: right;
+			}
+			
+			&::before {
+				content: '';
+				display: flex;
+				
+			}
+		}
+	}
+	
+	:global {
+		span.ant-tree-switcher_, .ant-tree-switcher {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+			&open {
+				:local {
+					.SVGexpand {
+						transform: rotate(90deg);
+					}
+				}
+			}
+			
+			&close {
+				
+				:local {
+					.SVGexpand {
+						transform: rotate(0);
+					}
+				}
+			}
+		}
+		
+		.ant-select-selection-placeholder {
+			display: flex;
+			align-items: center;
+			
+		}
+	}
+}
+
+
+.global-window-loading {
+	flex-grow: 1;
+	
+	:global {
+		.ant-spin-container.ant-spin-blur {
+			opacity: .2;
+			
+			&:after {
+				opacity: .6;
+				
+			}
+		}
+		
+		.ant-spin.ant-spin-spinning {
+			position: unset;
+			
+		}
+		
+		.ant-spin-container {
+			flex-grow: 1;
+			display: flex;
+			justify-content: flex-start;
+			flex-flow: row nowrap;
+			height: 100%;
+		}
+	}
+}
+
+
+
+.ant-input {
+	
+	
+	&-affix-wrapper {
+		
+		border-radius: 12px;
+		border: 1px solid #e6e8ec;
+	}
+}
+
+
+

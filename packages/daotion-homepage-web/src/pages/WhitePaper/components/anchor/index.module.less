@@ -1,0 +1,72 @@
+.anchor {
+  position: relative;
+  display: block;
+
+  &-hidden {
+    position: relative;
+    top: calc(-64px - 1rem); // 偏移值
+  }
+
+  //&::before {
+  //  position: absolute;
+  //  top: 50%;
+  //  left: -32px;
+  //
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: center;
+  //
+  //  width: 32px;
+  //  height: 35px;
+  //
+  //  font-size: 28px;
+  //  font-weight: 500;
+  //  line-height: 124%;
+  //  color: #34c759;
+  //
+  //  cursor: pointer;
+  //  content: "#";
+  //  opacity: 0;
+  //  transform: translateY(-50%);
+  //
+  //  @media screen and (max-width: 799px) {
+  //    left: -25px;
+  //  }
+  //}
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &-target {
+    position: relative;
+    display: block;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: -32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 32px;
+      height: 35px;
+
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 124%;
+      color: #34c759;
+
+      cursor: pointer;
+      content: "#";
+      opacity: 1;
+      transform: translateY(-50%);
+
+      @media screen and (max-width: 799px) {
+        left: -25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.title{
+	padding: 7px 10px 8px;
+}
+
+.msg-box{
+	margin: 0 27px 0 3px;
+	display: flex;
+	cursor: pointer;
+}
+
+.msg-content{
+	min-width: 336px;
+	min-height: 250px;
+	max-height: 80vh;
+
+	.message-container{
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		cursor: pointer;
+		padding: 9px 0;
+		border-bottom: 1px solid #E5E6EB;
+
+		
+		.label{
+			color: #4E5969;
+		}
+	}
+	
+	.message-container:last-child{
+		border-bottom: none;
+	}
+	.message-container:first-child{
+		padding-top: 0;
+	}
+}
+
+.empty-box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	padding: 60px;
+	color: rgba(22, 22, 26, 0.4);
+}
+
+
+:global(.ant-popover-inner){
+	border-radius: 12px;
+}
+
+

@@ -1,7 +1,10 @@
 {
 	"name": "requester",
 	"main": "src",
-	"version": "1.0.0",
+	"version": "2.0.0-experimental",
+	"scripts" : {
+		"test" : "jest"
+	} ,
 	"prettier": {
 		"printWidth": 120,
 		"tabWidth": 3,
@@ -15,8 +18,12 @@
 		"bracketSpacing": true,
 		"parser": "typescript"
 	},
+	"devDependencies" : {
+		"jest" : "29.3.1"
+	} ,
 	"dependencies": {
-		"lodash": "^4.17.21",
-		"url": "^0.11.0"
+		"tapable" : "2.2.1" ,
+		"lodash": "4.17.21",
+		"url": "0.11.0"
 	}
 }

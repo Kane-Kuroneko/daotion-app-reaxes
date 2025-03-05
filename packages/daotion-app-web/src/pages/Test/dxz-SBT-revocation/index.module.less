@@ -1,0 +1,176 @@
+.SBT-revocation-container {
+	display: flex;
+	flex-flow: column nowrap;
+	width: 100%;
+	line-height: normal;
+	align-items: center;
+}
+.main-title {
+	font-weight: 700;
+	font-size: 40px;
+	color: #313436;
+	margin-bottom: 8px;
+	user-select: none;
+	width: 1200px;
+}
+
+.some-intro {
+	font-weight: 500;
+	font-size: 14px;
+	color: #777e91;
+	margin-bottom: 24px;
+	user-select: none;
+	width: 1200px;
+}
+.SBT-revocation-info{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+.current-SBT-preview{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 24px;
+	width: 340px;
+	height: 496px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	margin-right: 8px;
+}
+.edit-SBT-revocationlist{
+	display: flex;
+	flex-direction: column;
+	
+}
+.SBT-revocation-item{
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+	svg{
+		cursor: pointer;
+	}
+	svg:hover{
+		path{
+			fill: #ef466f;
+		}
+	}
+}
+.SBT-revocationlist-main-box{
+	padding: 24px;
+	width: 852px;
+	height: 760px;
+	background: #FFFFFF;
+	border-radius: 8px;
+}
+.SBT-revocationlist-footer-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	padding:16px;
+	width: 852px;
+	height: 80px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	margin-bottom: 48px;
+	margin-top: 8px;
+}
+.SBT-revocation-footer-mention{
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 24px;
+	margin-left: 25px;
+	color: #FF3B30;
+	margin-bottom: 0;
+	
+}
+.SBT-revocationlist-subtitle{
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 32px;
+	margin-bottom: 20px;
+	user-select: none;
+}
+.SBT-preview-subtitle{
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 32px;
+	margin-bottom: 24px;
+	user-select: none;
+}
+.SBT-preview-img{
+	background: #d9d9d9;
+	width: 292px;
+	height: 292px;
+	border-radius: 12px;
+	user-select: none;
+}
+.SBT-name{
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 32px;
+	margin: 24px 0 8px 0;
+	user-select: none;
+}
+.SBT-address{
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	color: #777E91;
+	display: flex;
+	align-items: center;
+	transition: color .2s linear;
+	user-select: none;
+	span{
+		margin-right: 8px;
+	}
+	
+	&:hover{
+		color: #222528;
+		svg path{
+			fill: #222528;
+		}
+	}
+}
+.SBT-revocationlist-column-names{
+	margin-top: 50px;
+}
+.column-name-address {
+	font-weight: 600;
+	font-size: 14px;
+	color: #313436;
+	display: inline-block;
+	padding-bottom: 14px;
+	user-select: none;
+	width: 566px;
+	margin-right: 24px;
+}
+.column-name-amount{
+	font-weight: 600;
+	font-size: 14px;
+	color: #313436;
+	display: inline-block;
+	padding-bottom: 14px;
+	user-select: none;
+	width: 150px;
+	text-align: center;
+}
+
+.add-new-SBT-item-btn:global(.ant-btn){
+	padding: 10px;
+	width: 40px;
+	height: 40px;
+	background: #FFFFFF;
+	border: 2px solid #E6E8EC;
+	border-radius: 12px;
+	display: flex;
+	margin-top: 12px;
+	transition: all .25s linear;
+	&:hover{
+		border-color: #313436;
+		svg path{
+			fill: #313436;
+		}
+	}
+}

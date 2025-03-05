@@ -3,12 +3,13 @@ export const LayoutHeader = reaxper(() => {
 	const reax_user_info = reaxel_user_info();
 	const { logout } = reaxel_user_auth();
 	const { tz , setTz } = reaxel_timezone();
-	const { now } = reaxel_global();	
+	const { now } = reaxel_tick_tock();	
 	const { Select , Dropdown , Menu } = antd;
 	return (
 		<div className = { less.layoutHeader }>
-			<SVGHeaderDepayLogo />
+			<SVGHeaderRiverpayLogo />
 			<div className = { less.layoutHeaderRight }>
+				
 				<Dropdown
 					overlay = { <Menu
 						items = { [
@@ -24,26 +25,24 @@ export const LayoutHeader = reaxper(() => {
 					/> }
 				>
 					<div className = { less.headerTime }>
-						<SVGTimezoneIcon />
-						<span>{tz === "Asia/Shanghai"
-							? <>
-								<span>中国标准时间:</span>
-								<br/>
-								<span>UTC+08:00</span>
-							</>
-							: <>
-								<span>巴西时间:</span>
-								<br/>
-								<span>UTC-03:00</span>
-							</>
-						}</span>
-						<div className = {less.timeNow}>
+						<div style={{marginRight: '24px'}}>
 							<Timezone format >
 								{now}
 							</Timezone>
 						</div>
+						{tz === "Asia/Shanghai"
+							? <SVGHeaderTimezoneChina/>
+							: <SVGHeaderTimezoneBrazil/>
+						}
+						<span>{tz === "Asia/Shanghai"
+							? '中国时区'
+							: '巴西时区'
+						}</span>
+						<DownOutlined />
+						
 					</div>
 				</Dropdown>
+				<MessageBox/>
 				<div className = { less.userSelect }>
 					<Dropdown
 						overlay = { <Menu
@@ -95,17 +94,18 @@ export const LayoutHeader = reaxper(() => {
 import {
 	reaxel_user_info ,
 	reaxel_user_auth ,
-	timezone ,
 	Timezone ,
 	reaxel_timezone ,
-	reaxel_global,
+	reaxel_tick_tock,
 } from '@@reaxels';
+import { MessageBox } from '@@pages/--Components--/Message-Box';
 import {
 	SVGHeaderAvatar ,
-	SVGHeaderDepayLogo ,
+	SVGHeaderRiverpayLogo ,
 	SVGHeaderLogoutIcon ,
 	SVGHeaderResetpwdIcon ,
-	SVGTimezoneIcon ,
+	SVGHeaderTimezoneBrazil ,
+	SVGHeaderTimezoneChina ,
 } from '@@SVGcomponents';
-import {DownOutlined} from '@ant-design/icons'
-import less from './index.module.less'
+import { DownOutlined } from '@ant-design/icons';
+import less from './index.module.less';

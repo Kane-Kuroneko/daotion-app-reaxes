@@ -1,7 +1,7 @@
 [
 	{
 		"label": "无",
-		"status" : 0
+		"status" : null
 	},
 	{
 		"label": "待审核",

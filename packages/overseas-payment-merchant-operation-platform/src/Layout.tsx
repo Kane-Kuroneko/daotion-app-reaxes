@@ -47,27 +47,17 @@ export const LayoutBreadCrumb = reaxper(() => {
 	const { navigate , params,  } = toolkits.useRouter();
 	const path = params['*'].split('/');
 	const pathName = params['*'];
-	const routeName = {
-		'profile' : '用户信息' ,
-		'edit-profile': '编辑信息',
-		'collection-order' : '代收订单',
-		'payment-order' : '代付订单',
-		'withdrawal-order' : '提现订单',
-		'payment-mgnt' : '代付管理',
-		'ops-record' : '操作日志',
-		'overview' : '主页',
-		'fin-detail' : '资金明细',
-		'withdraw' : '提现',
-		'deposit' : '充值',
-		'new-payment' : '新增代付',
-	};
 	if (!(pathName === 'overview' || pathName.includes('profile'))) {
 		return (
 			<Space
 				direction = "vertical"
 				className = { less.contentSpace }
 			>
-				<Breadcrumb>
+				<Breadcrumb
+					style={{
+						userSelect : 'none',
+					}}
+				>
 					{ path.length > 1 && path.map((item , index) => (
 						<Breadcrumb.Item
 							key = { item }
@@ -76,8 +66,8 @@ export const LayoutBreadCrumb = reaxper(() => {
 							? <Button
 								type = "link"
 								style = { { padding : 0 , height : 0 } }
-							>{ routeName[item] }</Button>
-							: routeName[item]
+							>{ breadcrumb_router_name[item] }</Button>
+							: breadcrumb_router_name[item]
 						}</Breadcrumb.Item>
 					)) }
 				</Breadcrumb>
@@ -94,7 +84,7 @@ export const LayoutBreadCrumb = reaxper(() => {
 						>
 						</Button>
 					}
-					<h2 style = { { margin : 0 } }>{ routeName[path[path.length - 1]] }</h2>
+					<h2 style = { { margin : 0, userSelect : 'none' } }>{ breadcrumb_router_name[path[path.length - 1]] }</h2>
 				</div>
 			</Space>
 		);
@@ -110,3 +100,4 @@ import { LayoutMenu,LayoutHeader } from '@@pages/--Components--';
 import { LeftOutlined } from '@ant-design/icons';
 import { Navigate } from 'react-router-dom';
 import less from './styles/layout.module.less';
+import breadcrumb_router_name from '@@public/routers/breadcrumb-router-name.json'

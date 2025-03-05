@@ -5,7 +5,7 @@ export const reaxel_collection_order = function(){
 		input_search_orderID : "",
 		range_picker_order_created_date : [] ,
 		range_picker_order_updated_date : [] ,
-		select_order_status : 0 ,
+		select_order_status : null ,
 	};
 	const initialOrderList = {
 		pending:false,

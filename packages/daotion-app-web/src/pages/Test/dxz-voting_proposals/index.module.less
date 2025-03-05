@@ -1,0 +1,43 @@
+.Title{
+	font-size: 24px;
+	font-weight: 600;
+	margin: 0px;
+	height: 29px;
+	display: inline-block;
+	
+}
+
+Button.setting_newProposal{
+	display : flex;
+	align-items : center;
+	justify-content : center ;
+	font-size:14px;
+	font-weight: bolder;
+}
+.voting_proposals-container {
+	min-width: max-content;
+	
+	font-family : inter;
+	
+
+	:global{
+		.ant-select-arrow{
+			right: 16px;
+			color:#6F767E;
+		
+		}
+		.ant-select-selection-item{
+			color:#6f767e;
+			font-weight: bolder;
+			
+			width: fit-content;
+		}
+		.ant-select-single.ant-select-show-arrow .ant-select-selection-item{
+			padding-right: 8px;
+		}
+		.ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+			padding:8px 16px;
+			width: 165px;
+		}
+	}
+}

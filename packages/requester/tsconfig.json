@@ -31,9 +31,6 @@
 		"watch" : false ,
 		"allowSyntheticDefaultImports" : true ,
 		"paths" : {
-			"#reaxels" : [ "../reaxels" ] ,
-			"#reaxes" : [ "../reaxes" ] ,
-			"#toolkits" : [ "../toolkits" ] ,
 			"#utils" : [ "../utils" ]
 		} ,
 		"lib" : [

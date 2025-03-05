@@ -17,9 +17,12 @@ export function AsyncReplayablePayloadPlugin() {
 		hooks.onInvoke(async (slot,url,options) => {
 			const payload = (options.body ?? slot.options.body);
 			if(typeof payload === "function"){
-				const method = slot.options.method.toUpperCase();
 				const payloadData = await payload();
-				slot.options.body = payloadData;
+				if(_.isPlainObject( payloadData )){
+					slot.options.body = stringify(payloadData);
+				}else {
+					slot.options.body = payloadData;
+				}
 			}
 		});
 		/*todo 完善当后端返回登录失效等错误状态时的处理*/

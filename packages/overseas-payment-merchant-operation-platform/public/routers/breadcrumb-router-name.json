@@ -1,0 +1,19 @@
+{
+	"collection-order" : "代收订单",
+	"payment-order" : "代付订单",
+	"withdrawal-order" : "提现订单",
+	"deposit-order": "充值订单",
+	"overview" : "主页",
+	"account-fin-detail" : "托管账户资金明细",
+	"service-fin-detail" : "手续费账户资金明细",
+	"withdraw" : "提现",
+	"deposit" : "充值",
+	"mch-withdraw-rqst": "商户提现申请",
+	"mch-deposit-rqst": "商户充值申请",
+	"mch-mgnt": "商户管理",
+	"mch-detail" : "商户详情",
+	"edit-cfg" : "编辑商户",
+	"open-account": "创建商户",
+	"user-mgnt": "成员管理",
+	"setting" : "系统设置"
+}
