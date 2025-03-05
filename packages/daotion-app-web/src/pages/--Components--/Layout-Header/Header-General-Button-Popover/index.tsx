@@ -106,23 +106,7 @@ export const reaxel_general_button = function () {
 	
 	return ( lifecycle? ) => {
 		
-		lifecycle?.mounted( () => {
-			const [subscribe_root_click,invoke_root_click,root_click_symbol] = reaxel_subs_root_click();
-			const unsubscribe = subscribe_root_click( () => {
-				setTimeout( () => {
-					setState( {
-						general_popover_visible : false ,
-					} );
-					setTimeout( () => {
-						setState({
-							language_currency_visible : false ,
-						})
-					} , 200 );
-				} , 50 );
-			} , root_click_symbol );
-			return unsubscribe;
-		} );
-		
+
 		return {
 			get general_popover_visible() {
 				return store.general_popover_visible;
